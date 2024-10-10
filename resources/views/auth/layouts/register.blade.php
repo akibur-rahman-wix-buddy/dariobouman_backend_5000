@@ -66,7 +66,7 @@
                         <div class="row g-3 mb-3">
                             <div class="col-sm-6"><label class="form-label" for="password">Password</label>
                                 <div class="position-relative" data-password="data-password">
-                                    <input class="form-control form-icon-input pe-6" id="password" name=""
+                                    <input class="form-control form-icon-input pe-6" id="password" name="password"
                                         type="password" name="password" placeholder="Password"
                                         data-password-input="data-password-input" />
                                     {{-- <button
@@ -81,7 +81,7 @@
                                     Password</label>
                                 <div class="position-relative" data-password="data-password">
                                     <input class="form-control form-icon-input pe-6" id="confirmPassword" type="password"
-                                        name="password_confirmation"placeholder="Confirm Password"
+                                        name="password_confirmation" placeholder="Confirm Password"
                                         data-password-input="data-password-input" />
                                     {{-- <button
                                     class="btn px-3 py-0 h-100 position-absolute top-0 end-0 fs-7 text-body-tertiary"
