@@ -16,6 +16,10 @@
         font-size: 75%;
         color: var(--phoenix-form-invalid-color);
     }
+
+    .color-success {
+        color: var(--phoenix-success-dark) !important;
+    }
 </style>
 
 

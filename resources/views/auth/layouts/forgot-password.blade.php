@@ -63,8 +63,16 @@
                     <div class="px-xxl-5">
                         <div class="text-center mb-6">
                             <h4 class="text-body-highlight">Forgot your password?</h4>
-                            <p class="text-body-tertiary mb-5">Enter your email below and we will send <br
-                                    class="d-sm-none" />you a reset link</p>
+                            @if (session('status'))
+                                <p class="text-body-tertiary color-success mb-5">
+                                    {{ session('status') }}
+                                </p>
+                            @else
+                                <p class="text-body-tertiary  mb-5">
+                                    Enter your email below and we will send <br class="d-sm-none" />you a reset link
+                                </p>
+                            @endif
+
                             <form method="POST" action="{{ route('password.email') }}"
                                 class="d-flex align-items-center mb-5">
                                 @csrf
