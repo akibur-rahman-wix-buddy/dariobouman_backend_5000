@@ -139,41 +139,56 @@
                         <hr class="bg-body-secondary" />
                         <div class="divider-content-center">or use email</div>
                     </div> --}}
-                    <form>
-                        <div class="mb-3 text-start"><label class="form-label" for="name">Name</label><input
-                                class="form-control" id="name" type="text" placeholder="Name" /></div>
-                        <div class="mb-3 text-start"><label class="form-label" for="email">Email
-                                address</label><input class="form-control" id="email" type="email"
-                                placeholder="name@example.com" /></div>
+                    <form action="{{ route('register') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <div class="mb-3 text-start">
+                            <label class="form-label" for="name">Name</label>
+                            <input class="form-control" id="name" type="text" name="name"
+                                placeholder="Name" />
+                        </div>
+                        <div class="mb-3 text-start"><label class="form-label" for="email">Email address</label>
+                            <input class="form-control" id="email" type="email" name="email"
+                                placeholder="name@example.com" />
+                        </div>
                         <div class="row g-3 mb-3">
                             <div class="col-sm-6"><label class="form-label" for="password">Password</label>
-                                <div class="position-relative" data-password="data-password"><input
-                                        class="form-control form-icon-input pe-6" id="password" type="password"
-                                        placeholder="Password" data-password-input="data-password-input" /><button
+                                <div class="position-relative" data-password="data-password">
+                                    <input class="form-control form-icon-input pe-6" id="password" type="password"
+                                        name="password" placeholder="Password"
+                                        data-password-input="data-password-input" />
+                                    <button
                                         class="btn px-3 py-0 h-100 position-absolute top-0 end-0 fs-7 text-body-tertiary"
-                                        data-password-toggle="data-password-toggle"><span
-                                            class="uil uil-eye show"></span><span
-                                            class="uil uil-eye-slash hide"></span></button></div>
+                                        data-password-toggle="data-password-toggle">
+                                        <span class="uil uil-eye show"></span>
+                                        <span class="uil uil-eye-slash hide"></span>
+                                    </button>
+                                </div>
                             </div>
                             <div class="col-sm-6"><label class="form-label" for="confirmPassword">Confirm
                                     Password</label>
-                                <div class="position-relative" data-password="data-password"><input
-                                        class="form-control form-icon-input pe-6" id="confirmPassword"
-                                        type="password" placeholder="Confirm Password"
-                                        data-password-input="data-password-input" /><button
+                                <div class="position-relative" data-password="data-password">
+                                    <input class="form-control form-icon-input pe-6" id="confirmPassword"
+                                        type="password" name="password_confirmation"placeholder="Confirm Password"
+                                        data-password-input="data-password-input" />
+                                    <button
                                         class="btn px-3 py-0 h-100 position-absolute top-0 end-0 fs-7 text-body-tertiary"
-                                        data-password-toggle="data-password-toggle"><span
-                                            class="uil uil-eye show"></span><span
-                                            class="uil uil-eye-slash hide"></span></button></div>
+                                        data-password-toggle="data-password-toggle">
+                                        <span class="uil uil-eye show"></span>
+                                        <span class="uil uil-eye-slash hide"></span>
+                                    </button>
+                                </div>
                             </div>
                         </div>
-                        <div class="form-check mb-3"><input class="form-check-input" id="termsService"
-                                type="checkbox" /><label class="form-label fs-9 text-transform-none"
-                                for="termsService">I accept the <a href="#!">terms </a>and <a
-                                    href="#!">privacy policy</a></label></div><button
-                            class="btn btn-primary w-100 mb-3">Sign up</button>
-                        <div class="text-center"><a class="fs-9 fw-bold" href="sign-in.html">Sign in to an existing
-                                account</a></div>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" id="termsService" type="checkbox" />
+                            <label class="form-label fs-9 text-transform-none" for="termsService">
+                                I accept the <a href="#!">terms </a>and <a href="#!">privacy policy</a>
+                            </label>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100 mb-3">Sign up</button>
+                        <div class="text-center">
+                            <a class="fs-9 fw-bold" href="sign-in.html">Sign in to an existing account</a>
+                        </div>
                     </form>
                 </div>
             </div>
