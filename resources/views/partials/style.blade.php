@@ -9,6 +9,17 @@
 <link href="{{ asset('assets/css/user.min.css') }}" type="text/css" rel="stylesheet" id="user-style-default">
 
 
+<style>
+    .validation-error {
+        width: 100%;
+        margin-top: .25rem;
+        font-size: 75%;
+        color: var(--phoenix-form-invalid-color);
+    }
+</style>
+
+
+
 @stack('style')
 
 @stack('headScript')
