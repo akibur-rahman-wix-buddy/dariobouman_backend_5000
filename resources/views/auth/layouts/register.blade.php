@@ -66,8 +66,9 @@
                         <div class="row g-3 mb-3">
                             <div class="col-sm-6"><label class="form-label" for="password">Password</label>
                                 <div class="position-relative" data-password="data-password">
-                                    <input class="form-control form-icon-input pe-6" id="password" name="" type="password"
-                                        name="password" placeholder="Password" data-password-input="data-password-input" />
+                                    <input class="form-control form-icon-input pe-6" id="password" name=""
+                                        type="password" name="password" placeholder="Password"
+                                        data-password-input="data-password-input" />
                                     {{-- <button
                                     class="btn px-3 py-0 h-100 position-absolute top-0 end-0 fs-7 text-body-tertiary"
                                     data-password-toggle="data-password-toggle">
@@ -105,7 +106,7 @@
                         </div>
                         <button type="submit" class="btn btn-primary w-100 mb-3">Sign up</button>
                         <div class="text-center">
-                            <a class="fs-9 fw-bold" href="sign-in.html">Sign in to an existing account</a>
+                            <a class="fs-9 fw-bold" href="{{ route('login') }}">Sign in to an existing account</a>
                         </div>
                     </form>
                     {{-- Sigu Up form end --}}
