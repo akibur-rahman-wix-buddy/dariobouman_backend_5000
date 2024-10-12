@@ -28,8 +28,11 @@
     <!-- ===============================================-->
     <!--    Main Content-->
     <!-- ===============================================-->
-    @yield('main')
-    
+    <main class="main" id="top">
+        @include('backend.partials.sidebar')
+        @include('partials.header')
+        @yield('main')
+    </main>
 
     <!-- ===============================================-->
     <!--    JavaScripts-->

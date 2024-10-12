@@ -2,9 +2,9 @@
     <div class="collapse navbar-collapse justify-content-between">
         <div class="navbar-logo">
             <button class="btn navbar-toggler navbar-toggler-humburger-icon hover-bg-transparent" type="button"
-                data-bs-toggle="collapse" data-bs-target="#navbarVerticalCollapse"
-                aria-controls="navbarVerticalCollapse" aria-expanded="false" aria-label="Toggle Navigation"><span
-                    class="navbar-toggle-icon"><span class="toggle-line"></span></span></button>
+                data-bs-toggle="collapse" data-bs-target="#navbarVerticalCollapse" aria-controls="navbarVerticalCollapse"
+                aria-expanded="false" aria-label="Toggle Navigation"><span class="navbar-toggle-icon"><span
+                        class="toggle-line"></span></span></button>
             <a class="navbar-brand me-1 me-sm-3" href="index-2.html">
                 <div class="d-flex align-items-center">
                     <div class="d-flex align-items-center"><img src="assets/img/icons/logo.png" alt="phoenix"
@@ -36,15 +36,15 @@
                                 href="apps/e-commerce/landing/product-details.html">
                                 <div class="d-flex align-items-center">
                                     <div class="fw-normal text-body-highlight title"><span
-                                            class="fa-solid fa-clock-rotate-left"
-                                            data-fa-transform="shrink-2"></span> Store Macbook</div>
+                                            class="fa-solid fa-clock-rotate-left" data-fa-transform="shrink-2"></span>
+                                        Store Macbook</div>
                                 </div>
                             </a>
                             <a class="dropdown-item" href="apps/e-commerce/landing/product-details.html">
                                 <div class="d-flex align-items-center">
                                     <div class="fw-normal text-body-highlight title"> <span
-                                            class="fa-solid fa-clock-rotate-left"
-                                            data-fa-transform="shrink-2"></span> MacBook Air - 13″</div>
+                                            class="fa-solid fa-clock-rotate-left" data-fa-transform="shrink-2"></span>
+                                        MacBook Air - 13″</div>
                                 </div>
                             </a>
                         </div>
@@ -163,8 +163,8 @@
                             <a class="dropdown-item" href="apps/e-commerce/landing/product-details.html">
                                 <div class="d-flex align-items-center">
                                     <div class="fw-normal text-body-highlight title"> <span
-                                            class="fa-brands fa-chrome text-body"
-                                            data-fa-transform="shrink-2"></span> Store MacBook″</div>
+                                            class="fa-brands fa-chrome text-body" data-fa-transform="shrink-2"></span>
+                                        Store MacBook″</div>
                                 </div>
                             </a>
                         </div>
@@ -389,8 +389,8 @@
             <li class="nav-item dropdown">
                 <a class="nav-link" id="navbarDropdownNindeDots" href="#" role="button"
                     data-bs-toggle="dropdown" aria-haspopup="true" data-bs-auto-close="outside"
-                    aria-expanded="false"><svg width="16" height="16" viewbox="0 0 16 16"
-                        fill="none" xmlns="http://www.w3.org/2000/svg">
+                    aria-expanded="false"><svg width="16" height="16" viewbox="0 0 16 16" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
                         <circle cx="2" cy="2" r="2" fill="currentColor"></circle>
                         <circle cx="2" cy="8" r="2" fill="currentColor"></circle>
                         <circle cx="2" cy="14" r="2" fill="currentColor"></circle>
@@ -432,8 +432,8 @@
                                     </a></div>
                                 <div class="col-4"><a
                                         class="d-block bg-body-secondary-hover p-2 rounded-3 text-center text-decoration-none mb-3"
-                                        href="#!"><img src="assets/img/nav-icons/bitbucket.webp"
-                                            alt="" width="30" />
+                                        href="#!"><img src="assets/img/nav-icons/bitbucket.webp" alt=""
+                                            width="30" />
                                         <p class="mb-0 text-body-emphasis text-truncate fs-10 mt-1 pt-1">BitBucket</p>
                                     </a></div>
                                 <div class="col-4"><a
@@ -462,8 +462,8 @@
                                     </a></div>
                                 <div class="col-4"><a
                                         class="d-block bg-body-secondary-hover p-2 rounded-3 text-center text-decoration-none mb-3"
-                                        href="#!"><img src="assets/img/nav-icons/pinterest.webp"
-                                            alt="" width="30" />
+                                        href="#!"><img src="assets/img/nav-icons/pinterest.webp" alt=""
+                                            width="30" />
                                         <p class="mb-0 text-body-emphasis text-truncate fs-10 mt-1 pt-1">Pinterest</p>
                                     </a></div>
                                 <div class="col-4"><a
@@ -513,8 +513,8 @@
                                 </div>
                                 <h6 class="mt-2 text-body-emphasis">Jerry Seinfield</h6>
                             </div>
-                            <div class="mb-3 mx-3"><input class="form-control form-control-sm"
-                                    id="statusUpdateInput" type="text" placeholder="Update your status" />
+                            <div class="mb-3 mx-3"><input class="form-control form-control-sm" id="statusUpdateInput"
+                                    type="text" placeholder="Update your status" />
                             </div>
                         </div>
                         <div class="overflow-auto scrollbar" style="height: 10rem;">
@@ -532,8 +532,8 @@
                                             class="me-2 text-body align-bottom"
                                             data-feather="settings"></span>Settings &amp; Privacy </a></li>
                                 <li class="nav-item"><a class="nav-link px-3 d-block" href="#!"> <span
-                                            class="me-2 text-body align-bottom"
-                                            data-feather="help-circle"></span>Help Center</a></li>
+                                            class="me-2 text-body align-bottom" data-feather="help-circle"></span>Help
+                                        Center</a></li>
                                 <li class="nav-item"><a class="nav-link px-3 d-block" href="#!"> <span
                                             class="me-2 text-body align-bottom"
                                             data-feather="globe"></span>Language</a></li>
@@ -560,3 +560,102 @@
         </ul>
     </div>
 </nav>
+<script>
+    var navbarTopShape = window.config.config.phoenixNavbarTopShape;
+    var navbarPosition = window.config.config.phoenixNavbarPosition;
+    var body = document.querySelector('body');
+    var navbarDefault = document.querySelector('#navbarDefault');
+    var navbarTop = document.querySelector('#navbarTop');
+    var topNavSlim = document.querySelector('#topNavSlim');
+    var navbarTopSlim = document.querySelector('#navbarTopSlim');
+    var navbarCombo = document.querySelector('#navbarCombo');
+    var navbarComboSlim = document.querySelector('#navbarComboSlim');
+    var dualNav = document.querySelector('#dualNav');
+
+    var documentElement = document.documentElement;
+    var navbarVertical = document.querySelector('.navbar-vertical');
+
+    if (navbarPosition === 'dual-nav') {
+        topNavSlim?.remove();
+        navbarTop?.remove();
+        navbarTopSlim?.remove();
+        navbarCombo?.remove();
+        navbarComboSlim?.remove();
+        navbarDefault?.remove();
+        navbarVertical?.remove();
+        dualNav.removeAttribute('style');
+        document.documentElement.setAttribute('data-navigation-type', 'dual');
+
+    } else if (navbarTopShape === 'slim' && navbarPosition === 'vertical') {
+        navbarDefault?.remove();
+        navbarTop?.remove();
+        navbarTopSlim?.remove();
+        navbarCombo?.remove();
+        navbarComboSlim?.remove();
+        topNavSlim.style.display = 'block';
+        navbarVertical.style.display = 'inline-block';
+        document.documentElement.setAttribute('data-navbar-horizontal-shape', 'slim');
+
+    } else if (navbarTopShape === 'slim' && navbarPosition === 'horizontal') {
+        navbarDefault?.remove();
+        navbarVertical?.remove();
+        navbarTop?.remove();
+        topNavSlim?.remove();
+        navbarCombo?.remove();
+        navbarComboSlim?.remove();
+        dualNav?.remove();
+        navbarTopSlim.removeAttribute('style');
+        document.documentElement.setAttribute('data-navbar-horizontal-shape', 'slim');
+    } else if (navbarTopShape === 'slim' && navbarPosition === 'combo') {
+        navbarDefault?.remove();
+        navbarTop?.remove();
+        topNavSlim?.remove();
+        navbarCombo?.remove();
+        navbarTopSlim?.remove();
+        dualNav?.remove();
+        navbarComboSlim.removeAttribute('style');
+        navbarVertical.removeAttribute('style');
+        document.documentElement.setAttribute('data-navbar-horizontal-shape', 'slim');
+    } else if (navbarTopShape === 'default' && navbarPosition === 'horizontal') {
+        navbarDefault?.remove();
+        topNavSlim?.remove();
+        navbarVertical?.remove();
+        navbarTopSlim?.remove();
+        navbarCombo?.remove();
+        navbarComboSlim?.remove();
+        dualNav?.remove();
+        navbarTop.removeAttribute('style');
+        document.documentElement.setAttribute('data-navigation-type', 'horizontal');
+    } else if (navbarTopShape === 'default' && navbarPosition === 'combo') {
+        topNavSlim?.remove();
+        navbarTop?.remove();
+        navbarTopSlim?.remove();
+        navbarDefault?.remove();
+        navbarComboSlim?.remove();
+        dualNav?.remove();
+        navbarCombo.removeAttribute('style');
+        navbarVertical.removeAttribute('style');
+        document.documentElement.setAttribute('data-navigation-type', 'combo');
+    } else {
+        topNavSlim?.remove();
+        navbarTop?.remove();
+        navbarTopSlim?.remove();
+        navbarCombo?.remove();
+        navbarComboSlim?.remove();
+        dualNav?.remove();
+        navbarDefault.removeAttribute('style');
+        navbarVertical.removeAttribute('style');
+    }
+
+    var navbarTopStyle = window.config.config.phoenixNavbarTopStyle;
+    var navbarTop = document.querySelector('.navbar-top');
+    if (navbarTopStyle === 'darker') {
+        navbarTop.setAttribute('data-navbar-appearance', 'darker');
+    }
+
+    var navbarVerticalStyle = window.config.config.phoenixNavbarVerticalStyle;
+    var navbarVertical = document.querySelector('.navbar-vertical');
+    if (navbarVerticalStyle === 'darker') {
+        navbarVertical.setAttribute('data-navbar-appearance', 'darker');
+    }
+</script>
