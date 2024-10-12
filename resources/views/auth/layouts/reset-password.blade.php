@@ -1,7 +1,7 @@
 @extends('auth.app')
 
 @section('title')
-    Sing Up
+    Reset Password
 @endsection
 
 
