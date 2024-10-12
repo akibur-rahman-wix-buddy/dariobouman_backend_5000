@@ -23,3 +23,9 @@ require __DIR__.'/auth.php';
 Route::get('/index', function (){
     return view('backend.layouts.index');
 });
+Route::get('/general', function (){
+    return view('backend.layouts.settings.general');
+});
+Route::get('/setting', function (){
+    return view('backend.layouts.settings.mail');
+});

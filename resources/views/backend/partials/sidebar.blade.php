@@ -221,8 +221,7 @@
                                         class="fas fa-caret-right dropdown-indicator-icon"></span>
                                 </div>
                                 <span class="nav-link-icon">
-                                    {{-- <span data-feather="shopping-cart"></span> --}}
-                                    <img src="{{asset('assets/dev/icons/settings.png')}}" alt="">
+                                    <img src="{{ asset('assets/dev/icons/settings.png') }}" alt="">
                                 </span>
                                 <span class="nav-link-text">Setting</span>
                             </div>
@@ -231,22 +230,18 @@
                             <ul class="nav collapse parent" data-bs-parent="#navbarVerticalCollapse"
                                 id="nv-settings">
                                 <li class="collapsed-nav-item-title d-none">Setting</li>
+                                {{-- general settings --}}
                                 <li class="nav-item">
-                                    <a class="nav-link dropdown-indicator" href="#nv-admin" data-bs-toggle="collapse"
-                                        aria-expanded="true" aria-controls="nv-admin">
+                                    <a class="nav-link" href="wizard.html">
                                         <div class="d-flex align-items-center">
-                                            <div class="dropdown-indicator-icon-wrapper"><span
-                                                    class="fas fa-caret-right dropdown-indicator-icon"></span></div>
                                             <span class="nav-link-text">General</span>
                                         </div>
                                     </a>
                                 </li>
+                                {{-- MAIL SMTP --}}
                                 <li class="nav-item">
-                                    <a class="nav-link dropdown-indicator" href="#nv-admin" data-bs-toggle="collapse"
-                                        aria-expanded="true" aria-controls="nv-admin">
+                                    <a class="nav-link" href="wizard.html">
                                         <div class="d-flex align-items-center">
-                                            <div class="dropdown-indicator-icon-wrapper"><span
-                                                    class="fas fa-caret-right dropdown-indicator-icon"></span></div>
                                             <span class="nav-link-text">Mail SMTP</span>
                                         </div>
                                     </a>

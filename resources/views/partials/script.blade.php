@@ -11,6 +11,7 @@
 <script src="{{ asset('vendors/leaflet/leaflet.js') }}"></script>
 <script src="{{ asset('vendors/leaflet.markercluster/leaflet.markercluster.js') }}"></script>
 <script src="{{ asset('vendors/leaflet.tilelayer.colorfilter/leaflet-tilelayer-colorfilter.min.js') }}"></script>
+<script src="{{ asset('vendors/prism/prism.j') }}s"></script>
 <script src="{{ asset('assets/js/phoenix.js') }}"></script>
 <script src="{{ asset('vendors/echarts/echarts.min.js') }}"></script>
 <script src="{{ asset('assets/js/ecommerce-dashboard.js') }}"></script>
