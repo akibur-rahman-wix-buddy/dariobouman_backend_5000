@@ -1,5 +1,6 @@
+{{-- Default --}}
 {{-- <link rel="preconnect" href="https://fonts.googleapis.com/">
-    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin=""> --}}
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin=""> --}}
 <link href="{{ asset('assets/css/font/Nunito+Sans.css') }}" rel="stylesheet">
 <link href="{{ asset('vendors/simplebar/simplebar.min.css') }}" rel="stylesheet">
 <link rel="stylesheet" href="{{ asset('assets/css/unicons.iconscout/line.css') }}">
@@ -22,8 +23,14 @@
     }
 </style>
 
-
-
-@stack('styles')
-
+{{-- push js on header --}}
 @stack('headScripts')
+
+
+<link href="{{ assets('vendors/leaflet/leaflet.css') }}" rel="stylesheet">
+<link href="{{ assets('vendors/leaflet.markercluster/MarkerCluster.css') }}" rel="stylesheet">
+<link href="{{ assets('vendors/leaflet.markercluster/MarkerCluster.Default.css') }}" rel="stylesheet">
+
+
+{{-- push --}}
+@stack('styles')
