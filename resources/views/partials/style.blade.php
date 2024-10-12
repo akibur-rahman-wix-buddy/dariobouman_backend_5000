@@ -24,6 +24,6 @@
 
 
 
-@stack('style')
+@stack('styles')
 
-@stack('headScript')
+@stack('headScripts')

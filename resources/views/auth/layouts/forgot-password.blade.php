@@ -32,7 +32,7 @@
 @endsection
 
 
-@push('headScript')
+@push('headScripts')
     <script>
         var phoenixIsRTL = window.config.config.phoenixIsRTL;
         if (phoenixIsRTL) {
