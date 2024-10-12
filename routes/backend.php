@@ -1,0 +1,11 @@
+<?php
+
+use App\Http\Controllers\Web\Backend\Setting\MailController;
+use Illuminate\Support\Facades\Route;
+
+// Routes for managing dates in the admin panel.
+// This includes viewing, creating, editing, and deleting dates.
+Route::prefix('setting/mail')->name('setting.main.')->controller(MailController::class)->group(function () {
+    Route::get('/', 'index')->name('index');
+    Route::post('/', 'store')->name('store');
+});
