@@ -74,7 +74,6 @@
 @push('scripts')
     <script>
         $(document).ready(() => {
-            console.log('tushar');
             $(`#logoutButton`).on(`click`, (e) => {
                 e.preventDefault();
                 $(`#logoutForm`).submit();
