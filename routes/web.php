@@ -26,6 +26,6 @@ Route::get('/index', function (){
 Route::get('/general', function (){
     return view('backend.layouts.settings.general');
 });
-Route::get('/setting', function (){
+Route::get('/mail', function (){
     return view('backend.layouts.settings.mail');
 });
