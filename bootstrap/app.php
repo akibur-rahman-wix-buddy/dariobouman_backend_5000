@@ -17,6 +17,13 @@ return Application::configure(basePath: dirname(__DIR__))
                 ->middleware(['web'])
                 ->name('admin.')
                 ->group(base_path('routes/backend.php'));
+
+
+
+            Route::prefix('/')
+                ->middleware(['web'])
+                ->name('')
+                ->group(base_path('routes/frontend.php'));
         }
     )
     ->withMiddleware(function (Middleware $middleware) {
