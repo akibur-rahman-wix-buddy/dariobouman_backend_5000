@@ -12,10 +12,16 @@ return Application::configure(basePath: dirname(__DIR__))
         commands: __DIR__ . '/../routes/console.php',
         health: '/up',
         then: function () {
+            // route folder for admin
             Route::prefix('admin')
                 ->middleware(['web'])
                 ->name('admin.')
                 ->group(base_path('routes/backend.php'));
+            // route folder for users
+            Route::prefix('')
+            ->middleware(['web'])
+            ->name('')
+            ->group(base_path('routes/frontend.php'));
         }
     )
     ->withMiddleware(function (Middleware $middleware) {
