@@ -12,7 +12,7 @@ class SalesController extends Controller
      */
     public function index()
     {
-        //
+        return view('frontend.layouts.products.sales.index');
     }
 
     /**

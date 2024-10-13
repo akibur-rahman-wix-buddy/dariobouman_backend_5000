@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Web\Frontend\HomeController;
 use App\Http\Controllers\Web\Frontend\Product\InventoryController;
+use App\Http\Controllers\Web\Frontend\Product\SalesController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -29,6 +30,11 @@ Route::prefix('/')->name('home.')->controller(HomeController::class)->group(func
  */
 Route::prefix('/products')->name('products.')->group(function () {
     Route::prefix('/inventories')->name('inventories.')->controller(InventoryController::class)->group(function () {
+        Route::get('/', 'index')->name('index');
+    });
+
+
+    Route::prefix('/sales')->name('sales.')->controller(SalesController::class)->group(function () {
         Route::get('/', 'index')->name('index');
     });
 });

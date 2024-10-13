@@ -29,10 +29,12 @@
                                     style="font-size: 6px"></span>
                             @endif
                         </div>
-                    </a><!-- more inner pages-->
+                    </a>
                 </li>
+                {{-- Products --}}
                 <li class="nav-item">
                     <!-- parent pages-->
+                    <p class="navbar-vertical-label">Product Section</p>
                     <div class="nav-item-wrapper">
                         <a class="nav-link dropdown-indicator label-1 {{ request()->routeIs('products.*') ? 'active' : '' }}"
                             href="#nv-products" role="button" data-bs-toggle="collapse" aria-expanded="true"
@@ -69,25 +71,30 @@
                             <ul class="nav collapse parent show" data-bs-parent="#navbarVerticalCollapse"
                                 id="nv-products">
                                 <li class="collapsed-nav-item-title d-none">Products</li>
+                                {{-- Inventory --}}
                                 <li class="nav-item">
-                                    <a class="nav-link {{ request()->routeIs('products.inventories.index') ? 'active' : '' }}"
-                                        href="{{route('products.inventories.index')}}">
+                                    <a class="nav-link {{ request()->routeIs('products.inventories.*') ? 'active' : '' }}"
+                                        href="{{ route('products.inventories.index') }}">
                                         <div class="d-flex align-items-center">
                                             <span class="nav-link-text">Inventory</span>
                                         </div>
-                                    </a><!-- more inner pages-->
+                                    </a>
                                 </li>
-                                <li class="nav-item"><a class="nav-link" href="apps/e-commerce/admin/products.html">
+                                {{-- sales --}}
+                                <li class="nav-item">
+                                    <a class="nav-link {{ request()->routeIs('products.sales.*') ? 'active' : '' }}"
+                                        href="{{ route('products.sales.index') }}">
                                         <div class="d-flex align-items-center">
                                             <span class="nav-link-text">Sales</span>
                                         </div>
-                                    </a><!-- more inner pages-->
+                                    </a>
                                 </li>
                             </ul>
                         </div>
                     </div>
                 </li>
-                <li class="nav-item">
+                {{-- example --}}
+                {{-- <li class="nav-item">
                     <!-- label-->
                     <p class="navbar-vertical-label"></p>
                     <hr class="navbar-vertical-line" /><!-- parent pages-->
@@ -121,177 +128,35 @@
                                                             class="nav-link-text">Add product</span></div>
                                                 </a><!-- more inner pages-->
                                             </li>
-                                            <li class="nav-item"><a class="nav-link"
-                                                    href="apps/e-commerce/admin/products.html">
-                                                    <div class="d-flex align-items-center"><span
-                                                            class="nav-link-text">Products</span></div>
-                                                </a><!-- more inner pages-->
-                                            </li>
-                                            <li class="nav-item"><a class="nav-link"
-                                                    href="apps/e-commerce/admin/customers.html">
-                                                    <div class="d-flex align-items-center"><span
-                                                            class="nav-link-text">Customers</span></div>
-                                                </a><!-- more inner pages-->
-                                            </li>
-                                            <li class="nav-item"><a class="nav-link"
-                                                    href="apps/e-commerce/admin/customer-details.html">
-                                                    <div class="d-flex align-items-center"><span
-                                                            class="nav-link-text">Customer details</span></div>
-                                                </a><!-- more inner pages-->
-                                            </li>
-                                            <li class="nav-item"><a class="nav-link"
-                                                    href="apps/e-commerce/admin/orders.html">
-                                                    <div class="d-flex align-items-center"><span
-                                                            class="nav-link-text">Orders</span></div>
-                                                </a><!-- more inner pages-->
-                                            </li>
-                                            <li class="nav-item"><a class="nav-link"
-                                                    href="apps/e-commerce/admin/order-details.html">
-                                                    <div class="d-flex align-items-center"><span
-                                                            class="nav-link-text">Order details</span></div>
-                                                </a><!-- more inner pages-->
-                                            </li>
-                                            <li class="nav-item"><a class="nav-link"
-                                                    href="apps/e-commerce/admin/refund.html">
-                                                    <div class="d-flex align-items-center"><span
-                                                            class="nav-link-text">Refund</span></div>
-                                                </a><!-- more inner pages-->
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li class="nav-item"><a class="nav-link dropdown-indicator" href="#nv-customer"
-                                        data-bs-toggle="collapse" aria-expanded="true" aria-controls="nv-customer">
-                                        <div class="d-flex align-items-center">
-                                            <div class="dropdown-indicator-icon-wrapper"><span
-                                                    class="fas fa-caret-right dropdown-indicator-icon"></span></div>
-                                            <span class="nav-link-text">Customer</span>
-                                        </div>
-                                    </a><!-- more inner pages-->
-                                    <div class="parent-wrapper">
-                                        <ul class="nav collapse parent show" data-bs-parent="#e-commerce"
-                                            id="nv-customer">
-                                            <li class="nav-item"><a class="nav-link"
-                                                    href="apps/e-commerce/landing/homepage.html">
-                                                    <div class="d-flex align-items-center"><span
-                                                            class="nav-link-text">Homepage</span></div>
-                                                </a><!-- more inner pages-->
-                                            </li>
-                                            <li class="nav-item"><a class="nav-link"
-                                                    href="apps/e-commerce/landing/product-details.html">
-                                                    <div class="d-flex align-items-center"><span
-                                                            class="nav-link-text">Product details</span></div>
-                                                </a><!-- more inner pages-->
-                                            </li>
-                                            <li class="nav-item"><a class="nav-link"
-                                                    href="apps/e-commerce/landing/products-filter.html">
-                                                    <div class="d-flex align-items-center"><span
-                                                            class="nav-link-text">Products filter</span></div>
-                                                </a><!-- more inner pages-->
-                                            </li>
-                                            <li class="nav-item"><a class="nav-link"
-                                                    href="apps/e-commerce/landing/cart.html">
-                                                    <div class="d-flex align-items-center"><span
-                                                            class="nav-link-text">Cart</span></div>
-                                                </a><!-- more inner pages-->
-                                            </li>
-                                            <li class="nav-item"><a class="nav-link"
-                                                    href="apps/e-commerce/landing/checkout.html">
-                                                    <div class="d-flex align-items-center"><span
-                                                            class="nav-link-text">Checkout</span></div>
-                                                </a><!-- more inner pages-->
-                                            </li>
-                                            <li class="nav-item"><a class="nav-link"
-                                                    href="apps/e-commerce/landing/shipping-info.html">
-                                                    <div class="d-flex align-items-center"><span
-                                                            class="nav-link-text">Shipping info</span></div>
-                                                </a><!-- more inner pages-->
-                                            </li>
-                                            <li class="nav-item"><a class="nav-link"
-                                                    href="apps/e-commerce/landing/profile.html">
-                                                    <div class="d-flex align-items-center"><span
-                                                            class="nav-link-text">Profile</span></div>
-                                                </a><!-- more inner pages-->
-                                            </li>
-                                            <li class="nav-item"><a class="nav-link"
-                                                    href="apps/e-commerce/landing/favourite-stores.html">
-                                                    <div class="d-flex align-items-center"><span
-                                                            class="nav-link-text">Favourite stores</span></div>
-                                                </a><!-- more inner pages-->
-                                            </li>
-                                            <li class="nav-item"><a class="nav-link"
-                                                    href="apps/e-commerce/landing/wishlist.html">
-                                                    <div class="d-flex align-items-center"><span
-                                                            class="nav-link-text">Wishlist</span></div>
-                                                </a><!-- more inner pages-->
-                                            </li>
-                                            <li class="nav-item"><a class="nav-link"
-                                                    href="apps/e-commerce/landing/order-tracking.html">
-                                                    <div class="d-flex align-items-center"><span
-                                                            class="nav-link-text">Order tracking</span></div>
-                                                </a><!-- more inner pages-->
-                                            </li>
-                                            <li class="nav-item"><a class="nav-link"
-                                                    href="apps/e-commerce/landing/invoice.html">
-                                                    <div class="d-flex align-items-center"><span
-                                                            class="nav-link-text">Invoice</span></div>
-                                                </a><!-- more inner pages-->
-                                            </li>
                                         </ul>
                                     </div>
                                 </li>
                             </ul>
                         </div>
-                    </div><!-- parent pages-->
-                </li>
-                {{-- settings --}}
-                <li class="nav-item">
-                    <!-- label-->
-                    <p class="navbar-vertical-label"></p>
-                    <hr class="navbar-vertical-line" /><!-- parent pages-->
-                    <div class="nav-item-wrapper"><a class="nav-link dropdown-indicator label-1" href="#nv-settings"
-                            role="button" data-bs-toggle="collapse" aria-expanded="false"
-                            aria-controls="nv-settings">
-                            <div class="d-flex align-items-center">
-                                <div class="dropdown-indicator-icon-wrapper"><span
-                                        class="fas fa-caret-right dropdown-indicator-icon"></span>
-                                </div>
-                                <span class="nav-link-icon">
-                                    <img src="{{ asset('assets/dev/icons/settings.png') }}" alt="">
-                                </span>
-                                <span class="nav-link-text">Setting</span>
-                            </div>
-                        </a>
-                        <div class="parent-wrapper label-1">
-                            <ul class="nav collapse parent" data-bs-parent="#navbarVerticalCollapse"
-                                id="nv-settings">
-                                <li class="collapsed-nav-item-title d-none">Setting</li>
-                                {{-- general settings --}}
-                                <li class="nav-item">
-                                    <a class="nav-link" href="wizard.html">
-                                        <div class="d-flex align-items-center">
-                                            <span class="nav-link-text">General</span>
-                                        </div>
-                                    </a>
-                                </li>
-                                {{-- MAIL SMTP --}}
-                                <li class="nav-item">
-                                    <a class="nav-link" href="wizard.html">
-                                        <div class="d-flex align-items-center">
-                                            <span class="nav-link-text">Mail SMTP</span>
-                                        </div>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div><!-- parent pages-->
-                </li>
+                    </div>
+                </li> --}}
             </ul>
         </div>
     </div>
-    <div class="navbar-vertical-footer"><button
-            class="btn navbar-vertical-toggle border-0 fw-semibold w-100 white-space-nowrap d-flex align-items-center"><span
-                class="uil uil-left-arrow-to-left fs-8"></span><span
-                class="uil uil-arrow-from-right fs-8"></span><span class="navbar-vertical-footer-text ms-2">Collapsed
-                View</span></button></div>
+    <div class="navbar-vertical-footer">
+        <button
+            class="btn navbar-vertical-toggle border-0 fw-semibold w-100 white-space-nowrap d-flex align-items-center">
+            <svg fill="#525b75" height="16px" width="16px" version="1.1" id="Layer_1"
+                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                viewBox="0 0 512.04 512.04" xml:space="preserve" stroke="#525b75">
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                <g id="SVGRepo_iconCarrier">
+                    <g>
+                        <g>
+                            <path
+                                d="M508.933,248.353L402.267,141.687c-4.267-4.053-10.987-3.947-15.04,0.213c-3.947,4.16-3.947,10.667,0,14.827 l88.427,88.427H36.4l88.427-88.427c4.053-4.267,3.947-10.987-0.213-15.04c-4.16-3.947-10.667-3.947-14.827,0L3.12,248.353 c-4.16,4.16-4.16,10.88,0,15.04L109.787,370.06c4.267,4.053,10.987,3.947,15.04-0.213c3.947-4.16,3.947-10.667,0-14.827 L36.4,266.593h439.147L387.12,355.02c-4.267,4.053-4.373,10.88-0.213,15.04c4.053,4.267,10.88,4.373,15.04,0.213 c0.107-0.107,0.213-0.213,0.213-0.213l106.667-106.667C513.093,259.34,513.093,252.513,508.933,248.353z">
+                            </path>
+                        </g>
+                    </g>
+                </g>
+            </svg>
+            <span class="navbar-vertical-footer-text ms-2">Collapsed View</span>
+        </button>
+    </div>
 </nav>
