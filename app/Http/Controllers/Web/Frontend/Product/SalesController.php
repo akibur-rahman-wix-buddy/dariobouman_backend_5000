@@ -1,18 +1,18 @@
 <?php
 
-namespace App\Http\Controllers\Web\Frontend;
+namespace App\Http\Controllers\Web\Frontend\Product;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class ProductController extends Controller
+class SalesController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('frontend.layouts.products.index');
+        //
     }
 
     /**

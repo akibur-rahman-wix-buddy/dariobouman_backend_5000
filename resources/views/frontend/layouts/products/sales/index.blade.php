@@ -1,9 +1,11 @@
 @extends('frontend.app')
 
 @section('title')
-    Products
+    Home
 @endsection
 
 @section('main')
-products
+    <div class="content">
+        sales
+    </div>
 @endsection

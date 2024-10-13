@@ -6,6 +6,6 @@
 
 @section('main')
     <div class="content">
-        tushar
+        products
     </div>
 @endsection
