@@ -30,10 +30,10 @@ Route::prefix('/')->name('home.')->controller(HomeController::class)->group(func
  * - GET /products/inventories => products.inventories.index
  */
 Route::prefix('/products')->name('products.')->group(function () {
+
     Route::prefix('/inventories')->name('inventories.')->controller(InventoryController::class)->group(function () {
         Route::get('/', 'index')->name('index');
     });
-
 
     Route::prefix('/sales')->name('sales.')->controller(SalesController::class)->group(function () {
         Route::get('/', 'index')->name('index');
@@ -41,6 +41,18 @@ Route::prefix('/products')->name('products.')->group(function () {
 });
 
 
+/**
+ * Routes for managing user profiles.
+ * 
+ * This route group handles all endpoints related to user profile 
+ * management under the /profile prefix. The routes are prefixed with 
+ * 'profile.' for easy reference within the application.
+ * 
+ * Example routes:
+ * - GET /profile => profile.edit
+ * - PATCH /profile => profile.update
+ * - DELETE /profile => profile.destroy
+ */
 Route::prefix('/profile')->name('profile.')->controller(ProfileController::class)->group(function () {
     Route::get('/', 'edit')->name('edit');
     Route::patch('/', 'update')->name('update');
