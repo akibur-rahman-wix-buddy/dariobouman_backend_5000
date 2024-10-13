@@ -1,7 +1,7 @@
 @extends('frontend.app')
 
 @section('title')
-    Home
+    Sales
 @endsection
 
 @section('main')

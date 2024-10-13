@@ -1,11 +1,11 @@
 @extends('frontend.app')
 
 @section('title')
-    Inventory
+    template
 @endsection
 
 @section('main')
     <div class="content">
-        Inventory
+        template
     </div>
 @endsection
