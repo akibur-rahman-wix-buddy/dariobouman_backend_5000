@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -15,6 +16,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
+            $table->enum('role', ['admin', 'user'])->default('user');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
@@ -35,6 +37,37 @@ return new class extends Migration
             $table->longText('payload');
             $table->integer('last_activity')->index();
         });
+
+
+        //creating users
+        User::create([
+            'name' => 'Admin',
+            'email' => 'admin@admin.com',
+            'password' => bcrypt('12345678'),
+            'role' => 'admin',
+            'email_verified_at' => now(),
+        ]);
+
+
+        // creating users
+        User::create([
+            'name' => 'user1',
+            'email' => 'user1@user.com',
+            'password' => bcrypt('12345678'),
+            'email_verified_at' => now(),
+        ]);
+        User::create([
+            'name' => 'user2',
+            'email' => 'user2@user.com',
+            'password' => bcrypt('12345678'),
+            'email_verified_at' => now(),
+        ]);
+        User::create([
+            'name' => 'user3',
+            'email' => 'user3@user.com',
+            'password' => bcrypt('12345678'),
+            'email_verified_at' => now(),
+        ]);
     }
 
     /**
