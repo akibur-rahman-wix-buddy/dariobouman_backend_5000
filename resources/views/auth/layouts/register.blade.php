@@ -32,13 +32,13 @@
                         @csrf
                         <div class="mb-3 text-start">
                             <label class="form-label" for="name">Name</label>
-                            <input class="form-control" id="name" type="text" name="name" placeholder="Name" />
+                            <input class="form-control" id="name" type="text" name="name" value="{{old('name')}}" placeholder="Name" />
                             @error('name')
                                 <div class="text-danger validation-error">{{ $message }}</div>
                             @enderror
                         </div>
                         <div class="mb-3 text-start"><label class="form-label" for="email">Email address</label>
-                            <input class="form-control" id="email" type="email" name="email"
+                            <input class="form-control" id="email" type="email" name="email" value="{{old('email')}}"
                                 placeholder="name@example.com" />
                             @error('email')
                                 <div class="text-danger validation-error">{{ $message }}</div>

@@ -21,7 +21,7 @@
                             <input type="hidden" name="token" value="{{ $request->route('token') }}">
                             <div class="mb-2 text-start">
                                 <input class="form-control" id="email" type="email" name="email"
-                                    value="{{ old('email', $request->email) }}"
+                                    value="{{ old('email', $request->email) }}" disabled
                                     placeholder="{{ $request->email ?? 'name@example.com' }}" />
                                 @error('email')
                                     <div class="text-danger validation-error">{{ $message }}</div>
