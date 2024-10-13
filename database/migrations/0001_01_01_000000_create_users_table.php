@@ -5,8 +5,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
@@ -14,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('first_name');
+            $table->string('last_name')->nullable();
             $table->string('email')->unique();
             $table->enum('role', ['admin', 'user'])->default('user');
             $table->timestamp('email_verified_at')->nullable();
@@ -41,7 +41,8 @@ return new class extends Migration
 
         //creating users
         User::create([
-            'name' => 'Admin',
+            'first_name' => 'Admin',
+            'last_name' => 'Admin',
             'email' => 'admin@admin.com',
             'password' => bcrypt('12345678'),
             'role' => 'admin',
@@ -51,19 +52,22 @@ return new class extends Migration
 
         // creating users
         User::create([
-            'name' => 'user1',
+            'first_name' => 'user1',
+            'last_name' => 'user1',
             'email' => 'user1@user.com',
             'password' => bcrypt('12345678'),
             'email_verified_at' => now(),
         ]);
         User::create([
-            'name' => 'user2',
+            'first_name' => 'user2',
+            'last_name' => 'user2',
             'email' => 'user2@user.com',
             'password' => bcrypt('12345678'),
             'email_verified_at' => now(),
         ]);
         User::create([
-            'name' => 'user3',
+            'first_name' => 'user3',
+            'last_name' => 'user3',
             'email' => 'user3@user.com',
             'password' => bcrypt('12345678'),
             'email_verified_at' => now(),

@@ -31,9 +31,16 @@
                     <form action="{{ route('register') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-3 text-start">
-                            <label class="form-label" for="name">Name</label>
-                            <input class="form-control" id="name" type="text" name="name" value="{{old('name')}}" placeholder="Name" />
-                            @error('name')
+                            <label class="form-label" for="name">First Name</label>
+                            <input class="form-control" id="name" type="text" name="first_name" value="{{old('first_name')}}" placeholder="First Name" />
+                            @error('first_name')
+                                <div class="text-danger validation-error">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="mb-3 text-start">
+                            <label class="form-label" for="name">Last Name</label>
+                            <input class="form-control" id="name" type="text" name="last_name" value="{{old('last_name')}}" placeholder="Last Name" />
+                            @error('last_name')
                                 <div class="text-danger validation-error">{{ $message }}</div>
                             @enderror
                         </div>
