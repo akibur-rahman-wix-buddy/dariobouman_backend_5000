@@ -14,14 +14,14 @@ return Application::configure(basePath: dirname(__DIR__))
         then: function () {
             // route folder for admin
             Route::prefix('admin')
-                ->middleware(['web'])
+                ->middleware(['web', 'auth', 'admin'])
                 ->name('admin.')
                 ->group(base_path('routes/backend.php'));
 
 
 
             Route::prefix('/')
-                ->middleware(['web'])
+                ->middleware(['web', 'auth'])
                 ->name('')
                 ->group(base_path('routes/frontend.php'));
         }
