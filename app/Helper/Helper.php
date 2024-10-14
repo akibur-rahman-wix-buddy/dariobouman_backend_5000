@@ -82,7 +82,7 @@ class Helper
         $count = DB::table($table)->where($slugColumn, 'LIKE', "$slug%")->count();
 
         // If it exists, append the count
-        return $count ? "{$slug}-{$count}" : $slug;
+        return $count ? strtolower("{$slug}-{$count}") : strtolower($slug);
     }
 
 
