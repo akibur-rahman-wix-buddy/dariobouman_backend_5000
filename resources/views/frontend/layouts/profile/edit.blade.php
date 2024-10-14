@@ -23,15 +23,15 @@
                             <label class="avatar avatar-4xl status-online feed-avatar-profile cursor-pointer"
                                 for="upload-settings-porfile-picture">
                                 <img class="rounded-circle img-thumbnail shadow-sm border-0"
-                                    src="../../assets/img/team/20.webp" width="200" alt="" />
+                                    src="{{$user->avatar}}" width="200" alt="" />
                             </label>
                         </div>
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-12">
                                     <div class="d-flex flex-wrap mb-2 align-items-center">
-                                        <h3 class="me-2">Ansolo Lazinatov</h3>
-                                        <span class="fw-normal fs-8">u/hansolo</span>
+                                        <h3 class="me-2">{{$user->first_name}} {{$user->last_name}}</h3>
+                                        <span class="fw-normal fs-8">{{$user->handle}}</span>
                                     </div>
                                     <div class="d-flex d-xl-block d-xxl-flex align-items-center">
                                         <div class="d-flex mb-xl-2 mb-xxl-0 gap-2">
