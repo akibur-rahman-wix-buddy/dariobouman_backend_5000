@@ -51,7 +51,7 @@ Route::prefix('/products')->name('products.')->group(function () {
  * Example routes:
  * - GET /profile => profile.edit
  * - PATCH /profile => profile.update
- * - DELETE /profile => profile.destroy
+ * - GET /profile => profile.destroy
  */
 Route::prefix('/profile')->name('profile.')->controller(ProfileController::class)->group(function () {
     Route::get('/', 'edit')->name('edit');

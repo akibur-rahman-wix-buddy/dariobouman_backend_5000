@@ -197,22 +197,13 @@
                         </div>
                     </form>
                     <div class="row gy-5">
-                        {{-- <form class="col-12 col-md-6" action="{{ route('profile.destroy') }}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <h4 class="text-body-emphasis">Account Deletion</h4>
-                            <p class="text-body-tertiary">
-                                Transfer this account to another person or to a company repository.
-                            </p>
-                            <button class="btn btn-phoenix-danger">Delete account</button>
-                        </form> --}}
                         <div class="col-12 col-md-6">
 
                             <h4 class="text-body-emphasis">Account Deletion</h4>
                             <p class="text-body-tertiary">
                                 Transfer this account to another person or to a company repository.
                             </p>
-                            <a href="{{route('profile.destroy')}}" class="btn btn-phoenix-danger">Delete account</a>
+                            <a href="{{ route('profile.destroy') }}" class="btn btn-phoenix-danger">Delete account</a>
                         </div>
                     </div>
                 </div>
