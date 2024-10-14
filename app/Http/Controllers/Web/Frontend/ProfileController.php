@@ -12,10 +12,9 @@ class ProfileController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit()
+    public function edit(Request $request)
     {
-        $user = Auth::user();
-        
+        $user = $request->user();
         return view('frontend.layouts.profile.edit', compact('user'));
     }
 
@@ -30,8 +29,8 @@ class ProfileController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Request $request)
     {
-        //
+
     }
 }

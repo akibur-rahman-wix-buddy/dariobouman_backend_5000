@@ -22,16 +22,16 @@
                             <input class="d-none" id="upload-settings-porfile-picture" type="file" />
                             <label class="avatar avatar-4xl status-online feed-avatar-profile cursor-pointer"
                                 for="upload-settings-porfile-picture">
-                                <img class="rounded-circle img-thumbnail shadow-sm border-0"
-                                    src="{{$user->avatar}}" width="200" alt="" />
+                                <img class="rounded-circle img-thumbnail shadow-sm border-0" src="{{ $user->avatar }}"
+                                    width="200" alt="" />
                             </label>
                         </div>
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-12">
                                     <div class="d-flex flex-wrap mb-2 align-items-center">
-                                        <h3 class="me-2">{{$user->first_name}} {{$user->last_name}}</h3>
-                                        <span class="fw-normal fs-8">{{$user->handle}}</span>
+                                        <h3 class="me-2">{{ $user->first_name }} {{ $user->last_name }}</h3>
+                                        <span class="fw-normal fs-8">{{ $user->handle }}</span>
                                     </div>
                                     <div class="d-flex d-xl-block d-xxl-flex align-items-center">
                                         <div class="d-flex mb-xl-2 mb-xxl-0 gap-2">
@@ -57,10 +57,9 @@
                                                     class="fw-semibold ms-1 me-4">Inventories</span></h6>
                                         </div>
                                         <div class="d-flex gap-2">
-                                            <svg version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" width="10"
-                                                height="10"
-                                                xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512"
-                                                xml:space="preserve" fill="#000000">
+                                            <svg version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg"
+                                                width="10" height="10" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                viewBox="0 0 512 512" xml:space="preserve" fill="#000000">
                                                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                                 <g id="SVGRepo_tracerCarrier" stroke-linecap="round"
                                                     stroke-linejoin="round"></g>
@@ -198,11 +197,23 @@
                         </div>
                     </form>
                     <div class="row gy-5">
-                        <form class="col-12 col-md-6">
+                        {{-- <form class="col-12 col-md-6" action="{{ route('profile.destroy') }}" method="POST">
+                            @csrf
+                            @method('DELETE')
                             <h4 class="text-body-emphasis">Account Deletion</h4>
-                            <p class="text-body-tertiary">Transfer this account to another person or to a company
-                                repository.</p><button class="btn btn-phoenix-danger">Delete account</button>
-                        </form>
+                            <p class="text-body-tertiary">
+                                Transfer this account to another person or to a company repository.
+                            </p>
+                            <button class="btn btn-phoenix-danger">Delete account</button>
+                        </form> --}}
+                        <div class="col-12 col-md-6">
+
+                            <h4 class="text-body-emphasis">Account Deletion</h4>
+                            <p class="text-body-tertiary">
+                                Transfer this account to another person or to a company repository.
+                            </p>
+                            <a href="{{route('profile.destroy')}}" class="btn btn-phoenix-danger">Delete account</a>
+                        </div>
                     </div>
                 </div>
             </div>
