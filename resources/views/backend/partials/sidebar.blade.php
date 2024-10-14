@@ -20,7 +20,7 @@
                             <ul class="nav collapse parent show" data-bs-parent="#navbarVerticalCollapse"
                                 id="nv-home">
                                 <li class="collapsed-nav-item-title d-none">Home</li>
-                                <li class="nav-item"><a class="nav-link active" href="index-2.html">
+                                <li class="nav-item"><a class="nav-link active" href="{{route('home.index')}}">
                                         <div class="d-flex align-items-center"><span class="nav-link-text">E
                                                 commerce</span></div>
                                     </a><!-- more inner pages-->
