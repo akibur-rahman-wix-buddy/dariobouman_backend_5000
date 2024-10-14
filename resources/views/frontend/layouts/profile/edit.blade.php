@@ -105,46 +105,59 @@
                             <div class="row g-3">
                                 <div class="col-12 col-sm-6">
                                     <div class="form-icon-container">
-                                        <div class="form-floating"><input class="form-control form-icon-input"
-                                                id="firstName" type="text" placeholder="First Name" /><label
-                                                class="text-body-tertiary form-icon-label" for="firstName">FIRST
-                                                NAME</label></div><span
-                                            class="fa-solid fa-user text-body fs-9 form-icon"></span>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-sm-6">
-                                    <div class="form-icon-container">
-                                        <div class="form-floating"><input class="form-control form-icon-input"
-                                                id="lastName" type="text" placeholder="Last Name" /><label
-                                                class="text-body-tertiary form-icon-label" for="lastName">LAST
-                                                NAME</label></div><span
-                                            class="fa-solid fa-user text-body fs-9 form-icon"></span>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-sm-6">
-                                    <div class="form-icon-container">
-                                        <div class="form-floating"><input class="form-control form-icon-input"
-                                                id="emailSocial" type="email" placeholder="Email" /><label
-                                                class="text-body-tertiary form-icon-label" for="emailSocial">ENTER YOUR
-                                                EMAIL</label></div><span
-                                            class="fa-solid fa-envelope text-body fs-9 form-icon"></span>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-sm-6">
-                                    <div class="form-icon-container">
-                                        <div class="form-floating"><input class="form-control form-icon-input"
-                                                id="phone" type="tel" placeholder="Phone" /><label
-                                                class="text-body-tertiary form-icon-label" for="phone">ENTER YOUR
-                                                PHONE</label></div><span
-                                            class="fa-solid fa-phone text-body fs-9 form-icon"></span>
+                                        <div class="form-floating">
+                                            <input class="form-control form-icon-input" id="firstName" name="first_name"
+                                                value="{{ $user->first_name }}" type="text" placeholder="First Name" />
+                                            <label class="text-body-tertiary form-icon-label" for="firstName">
+                                                FIRST NAME
+                                            </label>
+                                        </div>
+                                        <span class="fa-solid fa-user text-body fs-9 form-icon"></span>
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-6">
                                     <div class="form-icon-container">
                                         <div class="form-floating">
-                                            <textarea class="form-control form-icon-input" id="info" style="height: 115px;" placeholder="Info"></textarea><label class="text-body-tertiary form-icon-label"
-                                                for="info">Info</label>
-                                        </div><span class="fa-solid fa-circle-info text-body fs-9 form-icon"></span>
+                                            <input class="form-control form-icon-input" id="lastName" name="last_name"
+                                                value="{{ $user->last_name }}" type="text" placeholder="Last Name" />
+                                            <label class="text-body-tertiary form-icon-label" for="lastName">
+                                                LAST NAME</label>
+                                        </div>
+                                        <span class="fa-solid fa-user text-body fs-9 form-icon"></span>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <div class="form-icon-container">
+                                        <div class="form-floating">
+                                            <input class="form-control form-icon-input" id="emailSocial" type="email"
+                                                name="email" value="{{ $user->email }}" placeholder="Email" />
+                                            <label class="text-body-tertiary form-icon-label" for="emailSocial">
+                                                ENTER YOUR EMAIL
+                                            </label>
+                                        </div>
+                                        <span class="fa-solid fa-envelope text-body fs-9 form-icon"></span>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <div class="form-icon-container">
+                                        <div class="form-floating">
+                                            <input class="form-control form-icon-input" id="phone" type="tel"
+                                                name="phone" value="{{ $profile->phone }}" placeholder="Phone" />
+                                            <label class="text-body-tertiary form-icon-label" for="phone">
+                                                ENTER YOUR PHONE
+                                            </label>
+                                        </div>
+                                        <span class="fa-solid fa-phone text-body fs-9 form-icon"></span>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <div class="form-icon-container">
+                                        <div class="form-floating">
+                                            <textarea class="form-control form-icon-input" id="bio" style="height: 115px;" placeholder="bio"
+                                                name="bio">{{ $profile->bio }}</textarea>
+                                            <label class="text-body-tertiary form-icon-label" for="bio">Bio</label>
+                                        </div>
+                                        <span class="fa-solid fa-circle-info text-body fs-9 form-icon"></span>
                                     </div>
                                 </div>
                             </div>
@@ -153,47 +166,62 @@
                             <div class="col-12 col-sm-6">
                                 <h4 class="mb-4">Company Info</h4>
                                 <div class="form-icon-container mb-3">
-                                    <div class="form-floating"><input class="form-control form-icon-input"
-                                            id="companyName" type="text" placeholder="Company Name" /><label
-                                            class="text-body-tertiary form-icon-label" for="companyName">COMPANY
-                                            NAME</label></div><span
-                                        class="fa-solid fa-building text-body fs-9 form-icon"></span>
+                                    <div class="form-floating">
+                                        <input class="form-control form-icon-input" id="companyName" type="text"
+                                            placeholder="Company Name" name="company_name"
+                                            value="{{ $profile->company_name }}" />
+                                        <label class="text-body-tertiary form-icon-label" for="companyName">
+                                            COMPANY NAME</label>
+                                    </div>
+                                    <span class="fa-solid fa-building text-body fs-9 form-icon"></span>
                                 </div>
                                 <div class="form-icon-container">
-                                    <div class="form-floating"><input class="form-control form-icon-input" id="website"
-                                            type="text" placeholder="Website" /><label
-                                            class="text-body-tertiary form-icon-label" for="website">Website</label>
-                                    </div><span class="fa-solid fa-globe text-body fs-9 form-icon"></span>
+                                    <div class="form-floating">
+                                        <input class="form-control form-icon-input" id="website" type="text"
+                                            name="website" value="{{ $profile->website }}" placeholder="Website" />
+                                        <label class="text-body-tertiary form-icon-label" for="website">Website</label>
+                                    </div>
+                                    <span class="fa-solid fa-globe text-body fs-9 form-icon"></span>
                                 </div>
                             </div>
                             <div class="col-12 col-sm-6">
                                 <h4 class="mb-4">Change Password</h4>
                                 <div class="form-icon-container mb-3">
-                                    <div class="form-floating"><input class="form-control form-icon-input"
-                                            id="oldPassword" type="password" placeholder="Old password" /><label
-                                            class="text-body-tertiary form-icon-label" for="oldPassword">Old
-                                            Password</label></div><span
-                                        class="fa-solid fa-lock text-body fs-9 form-icon"></span>
+                                    <div class="form-floating">
+                                        <input class="form-control form-icon-input" id="oldPassword" type="password"
+                                            placeholder="Old password" />
+                                        <label class="text-body-tertiary form-icon-label" for="oldPassword">
+                                            Old Password</label>
+                                    </div>
+                                    <span class="fa-solid fa-lock text-body fs-9 form-icon"></span>
                                 </div>
                                 <div class="form-icon-container mb-3">
                                     <div class="form-floating"><input class="form-control form-icon-input"
-                                            id="newPassword" type="password" placeholder="New password" /><label
-                                            class="text-body-tertiary form-icon-label" for="newPassword">New
-                                            Password</label></div><span
-                                        class="fa-solid fa-key text-body fs-9 form-icon"></span>
+                                            id="newPassword" type="password" placeholder="New password" />
+                                        <label class="text-body-tertiary form-icon-label" for="newPassword">
+                                            New Password
+                                        </label>
+                                    </div>
+                                    <span class="fa-solid fa-key text-body fs-9 form-icon"></span>
                                 </div>
                                 <div class="form-icon-container">
-                                    <div class="form-floating"><input class="form-control form-icon-input"
-                                            id="newPassword2" type="password" placeholder="Confirm New password" /><label
-                                            class="text-body-tertiary form-icon-label" for="newPassword2">Confirm New
-                                            Password</label></div><span
-                                        class="fa-solid fa-key text-body fs-9 form-icon"></span>
+                                    <div class="form-floating">
+                                        <input class="form-control form-icon-input" id="newPassword2" type="password"
+                                            placeholder="Confirm New password" />
+                                        <label class="text-body-tertiary form-icon-label" for="newPassword2">
+                                            Confirm New Password
+                                        </label>
+                                    </div>
+                                    <span class="fa-solid fa-key text-body fs-9 form-icon"></span>
                                 </div>
                             </div>
                         </div>
                         <div class="text-end mb-6">
-                            <div><button class="btn btn-phoenix-secondary me-2">Cancel Changes</button><button
-                                    class="btn btn-phoenix-primary">Save Information</button></div>
+                            <div>
+                                <button type="button" onclick="location.reload();"
+                                    class="btn btn-phoenix-secondary me-2">Cancel Changes</button>
+                                <button type="submit" class="btn btn-phoenix-primary">Save Information</button>
+                            </div>
                         </div>
                     </form>
                     <div class="row gy-5">

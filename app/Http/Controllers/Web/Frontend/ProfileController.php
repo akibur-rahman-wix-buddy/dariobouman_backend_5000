@@ -15,7 +15,12 @@ class ProfileController extends Controller
     public function edit(Request $request)
     {
         $user = $request->user();
-        return view('frontend.layouts.profile.edit', compact('user'));
+        $profile = $user->profile;
+        $compact = [
+            'user' => $user,
+            'profile' => $profile,
+        ];
+        return view('frontend.layouts.profile.edit', $compact);
     }
 
     /**

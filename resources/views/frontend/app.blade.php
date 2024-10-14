@@ -4,6 +4,7 @@
 <meta http-equiv="content-type" content="text/html;charset=utf-8" />
 @php
     $user = auth()->user();
+    $profile = $user->profile;
 @endphp
 
 <head>
