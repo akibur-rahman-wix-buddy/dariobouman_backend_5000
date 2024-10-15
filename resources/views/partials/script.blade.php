@@ -108,6 +108,7 @@
         @endif
     });
 </script>
+{{-- toastr end --}}
 
 <script>
     // Set CSRF token for AJAX requests
