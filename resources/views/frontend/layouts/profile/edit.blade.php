@@ -99,7 +99,10 @@
                     </div>
                 </div>
                 <div class="col-12 col-xl-8">
-                    <form class="border-bottom mb-4">
+                    {{-- profile update --}}
+                    <form class="border-bottom mb-4" action="{{ route('profile.update') }}" method="POST">
+                        @csrf
+                        @method('PATCH')
                         <div class="mb-6">
                             <h4 class="mb-4">Personal Information</h4>
                             <div class="row g-3">
@@ -160,60 +163,69 @@
                                         <span class="fa-solid fa-circle-info text-body fs-9 form-icon"></span>
                                     </div>
                                 </div>
+                                <div class="col-12 col-sm-6">
+                                    <div class="form-icon-container mb-3">
+                                        <div class="form-floating">
+                                            <input class="form-control form-icon-input" id="companyName" type="text"
+                                                placeholder="Company Name" name="company_name"
+                                                value="{{ $profile->company_name }}" />
+                                            <label class="text-body-tertiary form-icon-label" for="companyName">
+                                                COMPANY NAME</label>
+                                        </div>
+                                        <span class="fa-solid fa-building text-body fs-9 form-icon"></span>
+                                    </div>
+                                    <div class="form-icon-container">
+                                        <div class="form-floating">
+                                            <input class="form-control form-icon-input" id="website" type="text"
+                                                name="website" value="{{ $profile->website }}" placeholder="Website" />
+                                            <label class="text-body-tertiary form-icon-label" for="website">Website</label>
+                                        </div>
+                                        <span class="fa-solid fa-globe text-body fs-9 form-icon"></span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="row gx-3 mb-6 gy-6 gy-sm-3">
-                            <div class="col-12 col-sm-6">
-                                <h4 class="mb-4">Company Info</h4>
-                                <div class="form-icon-container mb-3">
-                                    <div class="form-floating">
-                                        <input class="form-control form-icon-input" id="companyName" type="text"
-                                            placeholder="Company Name" name="company_name"
-                                            value="{{ $profile->company_name }}" />
-                                        <label class="text-body-tertiary form-icon-label" for="companyName">
-                                            COMPANY NAME</label>
-                                    </div>
-                                    <span class="fa-solid fa-building text-body fs-9 form-icon"></span>
-                                </div>
-                                <div class="form-icon-container">
-                                    <div class="form-floating">
-                                        <input class="form-control form-icon-input" id="website" type="text"
-                                            name="website" value="{{ $profile->website }}" placeholder="Website" />
-                                        <label class="text-body-tertiary form-icon-label" for="website">Website</label>
-                                    </div>
-                                    <span class="fa-solid fa-globe text-body fs-9 form-icon"></span>
-                                </div>
+                        <div class="text-end mb-6">
+                            <div>
+                                <button type="button" onclick="location.reload();"
+                                    class="btn btn-phoenix-secondary me-2">Cancel Changes</button>
+                                <button type="submit" class="btn btn-phoenix-primary">Save Information</button>
                             </div>
-                            <div class="col-12 col-sm-6">
-                                <h4 class="mb-4">Change Password</h4>
-                                <div class="form-icon-container mb-3">
-                                    <div class="form-floating">
-                                        <input class="form-control form-icon-input" id="oldPassword" type="password"
-                                            placeholder="Old password" />
-                                        <label class="text-body-tertiary form-icon-label" for="oldPassword">
-                                            Old Password</label>
-                                    </div>
-                                    <span class="fa-solid fa-lock text-body fs-9 form-icon"></span>
+                        </div>
+                    </form>
+
+                    
+                    {{-- Update Password --}}
+                    <form class="border-bottom mb-4" action="">
+                        <div class="col-12 col-sm-6">
+                            <h4 class="mb-4">Change Password</h4>
+                            <div class="form-icon-container mb-3">
+                                <div class="form-floating">
+                                    <input class="form-control form-icon-input" id="oldPassword" type="password"
+                                        placeholder="Old password" />
+                                    <label class="text-body-tertiary form-icon-label" for="oldPassword">
+                                        Old Password</label>
                                 </div>
-                                <div class="form-icon-container mb-3">
-                                    <div class="form-floating"><input class="form-control form-icon-input"
-                                            id="newPassword" type="password" placeholder="New password" />
-                                        <label class="text-body-tertiary form-icon-label" for="newPassword">
-                                            New Password
-                                        </label>
-                                    </div>
-                                    <span class="fa-solid fa-key text-body fs-9 form-icon"></span>
+                                <span class="fa-solid fa-lock text-body fs-9 form-icon"></span>
+                            </div>
+                            <div class="form-icon-container mb-3">
+                                <div class="form-floating"><input class="form-control form-icon-input" id="newPassword"
+                                        type="password" placeholder="New password" />
+                                    <label class="text-body-tertiary form-icon-label" for="newPassword">
+                                        New Password
+                                    </label>
                                 </div>
-                                <div class="form-icon-container">
-                                    <div class="form-floating">
-                                        <input class="form-control form-icon-input" id="newPassword2" type="password"
-                                            placeholder="Confirm New password" />
-                                        <label class="text-body-tertiary form-icon-label" for="newPassword2">
-                                            Confirm New Password
-                                        </label>
-                                    </div>
-                                    <span class="fa-solid fa-key text-body fs-9 form-icon"></span>
+                                <span class="fa-solid fa-key text-body fs-9 form-icon"></span>
+                            </div>
+                            <div class="form-icon-container">
+                                <div class="form-floating">
+                                    <input class="form-control form-icon-input" id="newPassword2" type="password"
+                                        placeholder="Confirm New password" />
+                                    <label class="text-body-tertiary form-icon-label" for="newPassword2">
+                                        Confirm New Password
+                                    </label>
                                 </div>
+                                <span class="fa-solid fa-key text-body fs-9 form-icon"></span>
                             </div>
                         </div>
                         <div class="text-end mb-6">
