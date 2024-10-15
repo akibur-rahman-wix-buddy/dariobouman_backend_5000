@@ -116,6 +116,9 @@
                                             </label>
                                         </div>
                                         <span class="fa-solid fa-user text-body fs-9 form-icon"></span>
+                                        @error('first_name')
+                                            <div class="text-danger validation-error">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-6">
@@ -127,6 +130,9 @@
                                                 LAST NAME</label>
                                         </div>
                                         <span class="fa-solid fa-user text-body fs-9 form-icon"></span>
+                                        @error('last_name')
+                                            <div class="text-danger validation-error">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-6">
@@ -139,6 +145,9 @@
                                             </label>
                                         </div>
                                         <span class="fa-solid fa-envelope text-body fs-9 form-icon"></span>
+                                        @error('email')
+                                            <div class="text-danger validation-error">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-6">
@@ -151,6 +160,9 @@
                                             </label>
                                         </div>
                                         <span class="fa-solid fa-phone text-body fs-9 form-icon"></span>
+                                        @error('phone')
+                                            <div class="text-danger validation-error">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-6">
@@ -161,6 +173,9 @@
                                             <label class="text-body-tertiary form-icon-label" for="bio">Bio</label>
                                         </div>
                                         <span class="fa-solid fa-circle-info text-body fs-9 form-icon"></span>
+                                        @error('bio')
+                                            <div class="text-danger validation-error">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-6">
@@ -173,6 +188,9 @@
                                                 COMPANY NAME</label>
                                         </div>
                                         <span class="fa-solid fa-building text-body fs-9 form-icon"></span>
+                                        @error('company_name')
+                                            <div class="text-danger validation-error">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                     <div class="form-icon-container">
                                         <div class="form-floating">
@@ -182,6 +200,9 @@
                                                 for="website">Website</label>
                                         </div>
                                         <span class="fa-solid fa-globe text-body fs-9 form-icon"></span>
+                                        @error('website')
+                                            <div class="text-danger validation-error">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                 </div>
                             </div>
