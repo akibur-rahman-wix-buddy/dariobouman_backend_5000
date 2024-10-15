@@ -2,7 +2,10 @@
 <html lang="en-US" dir="ltr" data-navigation-type="default" data-navbar-horizontal-shape="default">
 
 <meta http-equiv="content-type" content="text/html;charset=utf-8" />
-
+@php
+    $user = auth()->user();
+    $profile = $user->profile;
+@endphp
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
