@@ -23,8 +23,12 @@ class ProfileController extends Controller
         $this->helper = new Helper();
     }
 
+
     /**
-     * Show the form for editing the specified resource.
+     * Show the form for editing the specified user's profile.
+     * 
+     * @param Request $request
+     * @return \Illuminate\View\View
      */
     public function edit(Request $request)
     {
@@ -37,8 +41,13 @@ class ProfileController extends Controller
         return view('frontend.layouts.profile.edit', $compact);
     }
 
+
+
     /**
-     * Update the specified resource in storage.
+     * Update the specified user's profile information in storage.
+     * 
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function update(Request $request)
     {
@@ -77,6 +86,13 @@ class ProfileController extends Controller
     }
 
 
+
+    /**
+     * Upload and update the user's avatar image.
+     * 
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function avatar(Request $request)
     {
         try {
@@ -113,8 +129,13 @@ class ProfileController extends Controller
         }
     }
 
-    /**
-     * Remove the specified resource from storage.
+
+
+      /**
+     * Remove the specified user from storage and log them out.
+     * 
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy(Request $request)
     {
