@@ -4,7 +4,7 @@ use App\Http\Controllers\Web\Backend\HomeController;
 use App\Http\Controllers\Web\Backend\Setting\MailController;
 use Illuminate\Support\Facades\Route;
 
-Route::prefix('/')->name('.')->controller(HomeController::class)->group(function () {
+Route::prefix('/')->name('')->controller(HomeController::class)->group(function () {
     Route::get('/', 'index')->name('index');
 });
 
