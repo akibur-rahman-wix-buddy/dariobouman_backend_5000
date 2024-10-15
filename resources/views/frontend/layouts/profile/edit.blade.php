@@ -300,6 +300,9 @@
                         reader.onload = (e) => {
                             $('#profile-image').attr('src', e.target.result);
                         }
+                        // Read the file immediately after selection
+                        reader.readAsDataURL(file);
+
 
                         const formData = new FormData();
                         formData.append('avatar', file);
@@ -312,11 +315,17 @@
                             processData: false,
                             success: (response) => {
                                 console.log('File uploaded successfully:', response);
-                                reader.readAsDataURL(file);
                                 toastr.success('Profile Image Uploaded');
                             },
-                            error: (jqXHR, textStatus, errorThrown) => {
-                                console.error('File upload failed:', textStatus, errorThrown);
+                            error: (XHR, textStatus, errorThrown) => {
+                                if (XHR.status == 422) {
+                                    XHR.responseJSON.errors.avatar.forEach(element => {
+                                        toastr.error(element);
+                                    });
+
+                                }else {
+                                    toastr.error(XHR.responseJSON.message || 'An error occurred. Please try again.');
+                                }
                             }
                         });
                     }

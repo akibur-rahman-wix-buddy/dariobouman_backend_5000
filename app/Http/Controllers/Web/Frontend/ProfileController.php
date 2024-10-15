@@ -83,7 +83,6 @@ class ProfileController extends Controller
             $validator = Validator::make($request->all(), [
                 'avatar' => 'required|image|mimes:jpeg,png,jpg,gif,webp,jfif',
             ]);
-
             if ($validator->fails()) {
                 throw new ValidationException($validator);
             }
@@ -103,10 +102,12 @@ class ProfileController extends Controller
             return response()->json([
                 'success' => false,
                 'errors' => $e->validator->errors(),
+                'message' => "validation failed",
             ], 422);
         } catch (Exception $e) {
             return response()->json([
                 'success' => false,
+                'errors' => $e->getMessage(),
                 'message' => 'An error occurred. Please try again.',
             ], 500);
         }
