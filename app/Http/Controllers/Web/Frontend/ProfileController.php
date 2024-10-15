@@ -71,6 +71,16 @@ class ProfileController extends Controller
         }
     }
 
+
+    public function avatar(Request $request)
+    {
+        dd($request->file('avatar'));
+        return response()->json([
+            'success' => true,
+            'data' => $request->avatar,
+        ], 200);
+    }
+
     /**
      * Remove the specified resource from storage.
      */

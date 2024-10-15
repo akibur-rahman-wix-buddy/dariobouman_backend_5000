@@ -56,6 +56,6 @@ Route::prefix('/products')->name('products.')->group(function () {
 Route::prefix('/profile')->name('profile.')->controller(ProfileController::class)->group(function () {
     Route::get('/', 'edit')->name('edit');
     Route::patch('/', 'update')->name('update');
-    Route::patch('/password', 'updatePassword')->name('update.password');
+    Route::patch('/avatar', 'avatar')->name('avatar');
     Route::get('/destroy', 'destroy')->name('destroy')->middleware('password.confirm');
 });

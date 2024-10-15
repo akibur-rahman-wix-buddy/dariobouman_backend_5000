@@ -19,11 +19,11 @@
                                     <span class="fa-solid fa-camera me-2"></span>
                                 </div>
                             </div>
-                            <input class="d-none" id="upload-settings-porfile-picture" type="file" />
+                            <input class="d-none" id="upload-settings-profile-picture" name="avatar" type="file" />
                             <label class="avatar avatar-4xl status-online feed-avatar-profile cursor-pointer"
-                                for="upload-settings-porfile-picture">
-                                <img class="rounded-circle img-thumbnail shadow-sm border-0" src="{{ $user->avatar }}"
-                                    width="200" alt="" />
+                                for="upload-settings-profile-picture">
+                                <img class="rounded-circle img-thumbnail shadow-sm border-0" id="profile-image"
+                                    src="{{ $user->avatar }}" width="200" alt="" />
                             </label>
                         </div>
                         <div class="card-body">
@@ -287,3 +287,42 @@
         <x-footer />
     </div>
 @endsection
+
+
+@push('scripts')
+    <script>
+        $(document).ready(() => {
+            $('#upload-settings-profile-picture').on('change', (event) => {
+                const file = event.target.files[0];
+                try {
+                    if (file) {
+                        const reader = new FileReader();
+                        reader.onload = (e) => {
+                            $('#profile-image').attr('src', e.target.result);
+                        }
+
+                        const formData = new FormData();
+                        formData.append('avatar', file);
+
+                        $.ajax({
+                            url: '{{ route('profile.avatar') }}',
+                            type: 'PATCH',
+                            data: formData, // Use formData here
+                            contentType: false,
+                            processData: false,
+                            success: (response) => {
+                                console.log('File uploaded successfully:', response);
+                                reader.readAsDataURL(file);
+                            },
+                            error: (jqXHR, textStatus, errorThrown) => {
+                                console.error('File upload failed:', textStatus, errorThrown);
+                            }
+                        });
+                    }
+                } catch (e) {
+                    console.error('An error occurred:', e);
+                }
+            });
+        });
+    </script>
+@endpush

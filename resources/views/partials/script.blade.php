@@ -20,5 +20,14 @@
 {{-- development --}}
 <script src="{{ asset('assets/js/jquery-3.7.1.min.js') }}"></script>
 
+<script>
+    // Set CSRF token for AJAX requests
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+</script>
+
 
 @stack('scripts')
