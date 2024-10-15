@@ -110,8 +110,7 @@
                                     <div class="form-icon-container">
                                         <div class="form-floating">
                                             <input class="form-control form-icon-input" id="firstName" name="first_name"
-                                                value="{{ $user->first_name }}" type="text"
-                                                placeholder="First Name" />
+                                                value="{{ $user->first_name }}" type="text" placeholder="First Name" />
                                             <label class="text-body-tertiary form-icon-label" for="firstName">
                                                 FIRST NAME
                                             </label>
@@ -314,6 +313,7 @@
                             success: (response) => {
                                 console.log('File uploaded successfully:', response);
                                 reader.readAsDataURL(file);
+                                toastr.success('Profile Image Uploaded');
                             },
                             error: (jqXHR, textStatus, errorThrown) => {
                                 console.error('File upload failed:', textStatus, errorThrown);

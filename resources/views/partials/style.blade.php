@@ -48,6 +48,6 @@
 <link href="{{ asset('vendors/leaflet.markercluster/MarkerCluster.css') }}" rel="stylesheet">
 <link href="{{ asset('vendors/leaflet.markercluster/MarkerCluster.Default.css') }}" rel="stylesheet">
 
-
+<link rel="stylesheet" href="{{asset('assets/dev/css/toastr.min.css')}}">
 {{-- push --}}
 @stack('styles')
