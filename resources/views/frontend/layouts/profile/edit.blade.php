@@ -292,6 +292,16 @@
 @push('scripts')
     <script>
         $(document).ready(() => {
+            /**
+             * jQuery Document Ready Function
+             * 
+             * This script handles the profile picture upload functionality. 
+             * When the user selects an image file through the file input with 
+             * the ID 'upload-settings-profile-picture', it reads the file 
+             * and displays a preview. The script then sends the image to the 
+             * server using AJAX for upload. It provides user feedback using 
+             * toastr notifications for success and error handling.
+             */
             $('#upload-settings-profile-picture').on('change', (event) => {
                 const file = event.target.files[0];
                 try {
@@ -322,8 +332,9 @@
                                         toastr.error(element);
                                     });
 
-                                }else {
-                                    toastr.error(XHR.responseJSON.message || 'An error occurred. Please try again.');
+                                } else {
+                                    toastr.error(XHR.responseJSON.message ||
+                                        'An error occurred. Please try again.');
                                 }
                             }
                         });
