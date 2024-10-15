@@ -15,7 +15,7 @@
                         <div class="card shadow-none border my-4" id="mailForm" data-component-card="data-component-card">
                             <div class="card-body p-0">
                                 <div class="p-4 code-to-copy">
-                                    <form action="{{route('admin.setting.main.store')}}" method="POST" class="row g-3 needs-validation" novalidate="">
+                                    <form action="{{route('admin.setting.mail.store')}}" method="POST" class="row g-3 needs-validation" novalidate="">
                                         @csrf
                                         <div class="col-md-4">
                                             <label class="form-label" for="mail_mailer">Mail Mailer</label>
