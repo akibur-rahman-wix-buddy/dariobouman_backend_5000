@@ -10,15 +10,16 @@ class Helper
     /**
      * Upload an image and return its URL.
      *
-     * @param  \Illuminate\Http\UploadedFile  $image
+     * @param  \Illuminate\Http\UploadedFile  $file
      * @param  string  $directory
+     * @param string $type 
      * @return string
      */
-    function uploadImage($image, $directory)
+    function uploadFile($file, $directory, $type)
     {
         try {
-            $imageFileName = uniqid('image_') . '.' . $image->getClientOriginalExtension();
-            $image->storeAs($directory, $imageFileName, 'public');
+            $imageFileName = uniqid($type.'_') . '.' . $file->getClientOriginalExtension();
+            $file->storeAs($directory, $imageFileName, 'public');
             return $directory . '/' . $imageFileName;
         } catch (Exception $e) {
             return redirect()->back()->with('t-error', 'Something went wrong');
@@ -32,7 +33,7 @@ class Helper
      * @param  string  $imageUrl
      * @return bool
      */
-    function deleteImage($imageUrl)
+    function deleteFile($imageUrl)
     {
         try {
             // Check if $imageUrl is a valid string

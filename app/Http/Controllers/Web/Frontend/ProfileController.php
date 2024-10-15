@@ -2,20 +2,25 @@
 
 namespace App\Http\Controllers\Web\Frontend;
 
+use App\Helper\Helper;
 use App\Http\Controllers\Controller;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\ValidationException;
 
 class ProfileController extends Controller
 {
     protected $user;
+    protected $helper;
 
     public function __construct()
     {
         $this->user = Auth::user();
+        $this->helper = new Helper();
     }
 
     /**
@@ -74,11 +79,37 @@ class ProfileController extends Controller
 
     public function avatar(Request $request)
     {
-        dd($request->file('avatar'));
-        return response()->json([
-            'success' => true,
-            'data' => $request->avatar,
-        ], 200);
+        try {
+            $validator = Validator::make($request->all(), [
+                'avatar' => 'required|image|mimes:jpeg,png,jpg,gif,webp,jfif',
+            ]);
+
+            if ($validator->fails()) {
+                throw new ValidationException($validator);
+            }
+
+            $avater = $this->helper->uploadFile($request->avatar, 'avatars/' . $this->user->handle, 'image');
+
+            $this->user->update([
+                'avatar' => $avater,
+            ]);
+
+            return response()->json([
+                'success' => true,
+                'data' => $avater,
+            ], 200);
+
+        } catch (ValidationException $e) {
+            return response()->json([
+                'success' => false,
+                'errors' => $e->validator->errors(),
+            ], 422);
+        } catch (Exception $e) {
+            return response()->json([
+                'success' => false,
+                'message' => 'An error occurred. Please try again.',
+            ], 500);
+        }
     }
 
     /**

@@ -306,7 +306,7 @@
 
                         $.ajax({
                             url: '{{ route('profile.avatar') }}',
-                            type: 'PATCH',
+                            type: 'POST',
                             data: formData, // Use formData here
                             contentType: false,
                             processData: false,
