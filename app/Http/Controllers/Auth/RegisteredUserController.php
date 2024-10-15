@@ -51,10 +51,11 @@ class RegisteredUserController extends Controller
 
         try {
             DB::beginTransaction();
+            $handle = $this->helper->generateUniqueSlug($request->last_name, 'users', 'handle');
             $user = User::create([
                 'first_name' => $request->first_name,
                 'last_name' => $request->last_name,
-                'handle' => $this->helper->generateUniqueSlug($request->last_name, 'users', 'handle'),
+                'handle' => $handle,
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
             ]);
@@ -67,7 +68,7 @@ class RegisteredUserController extends Controller
             Auth::login($user);
 
             DB::commit();
-            return redirect(route('dashboard', absolute: false));
+            return redirect(route('home.index', absolute: false));
         } catch (Exception $e) {
             DB::rollBack();
             Log::error('Registration Failed: ' . $e->getMessage());

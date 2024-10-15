@@ -23,6 +23,7 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $fillable = [
         'first_name',
         'last_name',
+        'handle',
         'avatar',
         'email',
         'password',
@@ -72,6 +73,6 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function getAvatarAttribute($url): string
     {
-        return $url ? asset('storage/'. $url) : asset('assets/dev/image/avatar.jpg');
+        return $url ? asset('storage/' . $url) : asset('assets/dev/image/avatar.jpg');
     }
 }

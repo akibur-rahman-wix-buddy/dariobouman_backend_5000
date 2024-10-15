@@ -278,7 +278,7 @@
                             <p class="text-body-tertiary">
                                 Transfer this account to another person or to a company repository.
                             </p>
-                            <a href="{{ route('profile.destroy') }}" class="btn btn-phoenix-danger">Delete account</a>
+                            <a href="{{ route('profile.destroy', $user->id) }}" class="btn btn-phoenix-danger">Delete account</a>
                         </div>
                     </div>
                 </div>

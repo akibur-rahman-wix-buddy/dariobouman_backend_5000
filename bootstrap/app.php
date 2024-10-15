@@ -21,7 +21,7 @@ return Application::configure(basePath: dirname(__DIR__))
 
 
             Route::prefix('/')
-                ->middleware(['web', 'auth'])
+                ->middleware(['web', 'auth', 'verified'])
                 ->name('')
                 ->group(base_path('routes/frontend.php'));
         }

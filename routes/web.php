@@ -1,34 +1,27 @@
 <?php
 
+
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\Web\Frontend\HomeController;
-use App\Http\Controllers\Web\Frontend\ProductController;
 use Illuminate\Support\Facades\Route;
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
-// Route::middleware(['auth', 'verified'])->group(function () {
-//     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-//     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-//     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-// });
 
 require __DIR__ . '/auth.php';
 
-
-Route::get('/index', function () {
-    return view('backend.layouts.index');
-});
-Route::get('/general', function () {
-    return view('backend.layouts.settings.general');
-});
-Route::get('/mail', function () {
-    return view('backend.layouts.settings.mail');
+/**
+ * Routes for managing user profiles.
+ * 
+ * This route group handles all endpoints related to user profile 
+ * management under the /profile prefix. The routes are prefixed with 
+ * 'profile.' for easy reference within the application.
+ * 
+ * Example routes:
+ * - GET /profile => profile.edit
+ * - PATCH /profile => profile.update
+ * - GET /profile => profile.destroy
+ */
+Route::prefix('/profile')->name('profile.')->controller(ProfileController::class)->group(function () {
+    Route::get('/', 'edit')->name('edit');
+    Route::patch('/', 'update')->name('update');
+    Route::post('/avatar', 'avatar')->name('avatar');
+    Route::get('/destroy/{user}', 'destroy')->name('destroy')->middleware('password.confirm');
 });
