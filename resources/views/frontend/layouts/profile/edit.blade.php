@@ -314,7 +314,6 @@
                             contentType: false,
                             processData: false,
                             success: (response) => {
-                                console.log('File uploaded successfully:', response);
                                 toastr.success('Profile Image Uploaded');
                             },
                             error: (XHR, textStatus, errorThrown) => {
