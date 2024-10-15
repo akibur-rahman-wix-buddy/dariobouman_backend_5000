@@ -178,7 +178,8 @@
                                         <div class="form-floating">
                                             <input class="form-control form-icon-input" id="website" type="text"
                                                 name="website" value="{{ $profile->website }}" placeholder="Website" />
-                                            <label class="text-body-tertiary form-icon-label" for="website">Website</label>
+                                            <label class="text-body-tertiary form-icon-label"
+                                                for="website">Website</label>
                                         </div>
                                         <span class="fa-solid fa-globe text-body fs-9 form-icon"></span>
                                     </div>
@@ -194,38 +195,51 @@
                         </div>
                     </form>
 
-                    
                     {{-- Update Password --}}
-                    <form class="border-bottom mb-4" action="">
-                        <div class="col-12 col-sm-6">
-                            <h4 class="mb-4">Change Password</h4>
-                            <div class="form-icon-container mb-3">
-                                <div class="form-floating">
-                                    <input class="form-control form-icon-input" id="oldPassword" type="password"
-                                        placeholder="Old password" />
-                                    <label class="text-body-tertiary form-icon-label" for="oldPassword">
-                                        Old Password</label>
+                    <form class="border-bottom mb-4" action="{{ route('password.update') }}" method="POST">
+                        @csrf
+                        @method('PUT')
+                        <div class="mb-6">
+                            <div class="col-12 col-sm-6">
+                                <h4 class="mb-4">Change Password</h4>
+                                <div class="form-icon-container mb-3">
+                                    <div class="form-floating">
+                                        <input class="form-control form-icon-input" id="oldPassword"
+                                            name="current_password" type="password" placeholder="Old password" />
+                                        <label class="text-body-tertiary form-icon-label" for="oldPassword">
+                                            Old Password</label>
+                                    </div>
+                                    <span class="fa-solid fa-lock text-body fs-9 form-icon"></span>
+                                    @error('current_password')
+                                        <div class="text-danger validation-error">{{ $message }}</div>
+                                    @enderror
                                 </div>
-                                <span class="fa-solid fa-lock text-body fs-9 form-icon"></span>
-                            </div>
-                            <div class="form-icon-container mb-3">
-                                <div class="form-floating"><input class="form-control form-icon-input" id="newPassword"
-                                        type="password" placeholder="New password" />
-                                    <label class="text-body-tertiary form-icon-label" for="newPassword">
-                                        New Password
-                                    </label>
+                                <div class="form-icon-container mb-3">
+                                    <div class="form-floating"><input class="form-control form-icon-input"
+                                            id="newPassword" type="password" placeholder="New password"
+                                            name="password" />
+                                        <label class="text-body-tertiary form-icon-label" for="newPassword">
+                                            New Password
+                                        </label>
+                                    </div>
+                                    <span class="fa-solid fa-key text-body fs-9 form-icon"></span>
+                                    @error('password')
+                                        <div class="text-danger validation-error">{{ $message }}</div>
+                                    @enderror
                                 </div>
-                                <span class="fa-solid fa-key text-body fs-9 form-icon"></span>
-                            </div>
-                            <div class="form-icon-container">
-                                <div class="form-floating">
-                                    <input class="form-control form-icon-input" id="newPassword2" type="password"
-                                        placeholder="Confirm New password" />
-                                    <label class="text-body-tertiary form-icon-label" for="newPassword2">
-                                        Confirm New Password
-                                    </label>
+                                <div class="form-icon-container">
+                                    <div class="form-floating">
+                                        <input class="form-control form-icon-input" id="newPassword2" type="password"
+                                            placeholder="Confirm New password" name="password_confirmation" />
+                                        <label class="text-body-tertiary form-icon-label" for="newPassword2">
+                                            Confirm New Password
+                                        </label>
+                                    </div>
+                                    <span class="fa-solid fa-key text-body fs-9 form-icon"></span>
+                                    @error('password')
+                                        <div class="text-danger validation-error">{{ $message }}</div>
+                                    @enderror
                                 </div>
-                                <span class="fa-solid fa-key text-body fs-9 form-icon"></span>
                             </div>
                         </div>
                         <div class="text-end mb-6">
