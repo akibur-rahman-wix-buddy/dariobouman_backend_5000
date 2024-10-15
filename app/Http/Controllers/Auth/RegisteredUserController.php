@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Helper\Helper;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Exception;
@@ -17,6 +18,14 @@ use Illuminate\View\View;
 
 class RegisteredUserController extends Controller
 {
+
+    private $helper;
+
+    public function __construct()
+    {
+        $this->helper = new Helper();
+    }
+
     /**
      * Display the registration view.
      */
@@ -45,6 +54,7 @@ class RegisteredUserController extends Controller
             $user = User::create([
                 'first_name' => $request->first_name,
                 'last_name' => $request->last_name,
+                'handle' => $this->helper->generateUniqueSlug($request->last_name, 'users', 'handle'),
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
             ]);
