@@ -151,9 +151,7 @@ class ProfileController extends Controller
             $user->delete();
 
             // If the deleted user is the currently authenticated user, log them out
-            if ($request->user()->id === $user->id) {
-                Auth::logout();
-            }
+            Auth::logout();
 
             return redirect()->route('login')->with('success', 'User deleted successfully.');
         } catch (Exception $e) {
