@@ -4,98 +4,91 @@ namespace App\Services;
 
 use Exception;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
 use League\OAuth2\Client\Provider\GenericProvider;
 
 class StockXService
 {
-    private $clientId, $clientSecret, $redirectUri;
-    private $urlAuthorize, $urlAccessToken, $urlResourceOwnerDetails, $scopes;
 
-    protected $provider;
+    public $provider;
 
-
-    public function __construct(
-        $clientId,
-        $clientSecret,
-        $redirectUri,
-        $urlAuthorize = 'https://accounts.stockx.com/authorize',
-        $urlAccessToken = 'https://accounts.stockx.com/oauth/token',
-        $urlResourceOwnerDetails = '',
-        $scopes = 'offline_access openid'
-    ) {
-        $this->clientId = $clientId;
-        $this->clientSecret = $clientSecret;
-        $this->redirectUri = $redirectUri;
-        $this->urlAuthorize = $urlAuthorize;
-        $this->urlAccessToken = $urlAccessToken;
-        $this->urlResourceOwnerDetails = $urlResourceOwnerDetails;
-        $this->scopes = $scopes;
-
-
+    public function __construct($clientId, $clientSecret)
+    {
         $this->provider = new GenericProvider([
-            'clientId' => $this->clientId,
-            'clientSecret' => $this->clientSecret,
-            'redirectUri' => $this->redirectUri,
-            'urlAuthorize' => $this->urlAuthorize,
-            'urlAccessToken' => $this->urlAccessToken,
-            'urlResourceOwnerDetails' => $this->urlResourceOwnerDetails, // This is not needed for basic token retrieval
-            'scopes' => $this->scopes,
+            'clientId' => $clientId,
+            'clientSecret' => $clientSecret,
+            'redirectUri' => 'https://5kdariobouman.test/auth/stockx/callback',
+            'urlAuthorize' => 'https://accounts.stockx.com/authorize',
+            'urlAccessToken' => 'https://accounts.stockx.com/oauth/token',
+            'urlResourceOwnerDetails' => '', // This is not needed for basic token retrieval
+            'scopes' => 'offline_access openid',
         ]);
     }
 
 
 
-
-    /**
-     * Redirects the user to the StockX authorization URL to initiate the OAuth2 flow.
-     * 
-     * @return \Illuminate\Http\RedirectResponse
-     */
-    public function redirectToProvider()
+    public function getAuthorizationUrl()
     {
-        // Generate the authorization URL
-        $authorizationUrl = $this->provider->getAuthorizationUrl([
+        // Generate the authorization URL dynamically
+        return $this->provider->getAuthorizationUrl([
             'audience' => 'gateway.stockx.com',
-            'scope' => 'offline_access openid'
+            'scope' => config('services.stockx.scopes')
         ]);
-
-        // Store the state in the session to validate it later
-        session(['oauth2state' => $this->provider->getState()]);
-
-        // Redirect the user to the authorization URL
-        return redirect()->away($authorizationUrl);
     }
 
-
-
-    public function handleCallback(Request $request)
+    public function getAccessToken($code)
     {
-        // Check for errors or state mismatch
-        if (!$request->has('code') || $request->input('state') !== session('oauth2state')) {
-            return redirect('/')->withErrors('Invalid state or code');
+        // Get access token using the authorization code
+        return $this->provider->getAccessToken('authorization_code', [
+            'code' => $code
+        ]);
+    }
+
+    public function fetchProductList($apiKey, $accessToken, $page = 1, $pageSize = 100)
+    {
+        $response = Http::withHeaders([
+            'x-api-key' => $apiKey,
+            'Authorization' => 'Bearer ' . $accessToken,
+        ])->get('https://api.stockx.com/v2/selling/listings', [
+                    'pageNumber' => $page,
+                    'pageSize' => $pageSize,
+                    'listingStatuses' => 'ACTIVE',
+                    'inventoryTypes' => 'STANDARD',
+                ]);
+
+        if ($response->successful()) {
+            return $response->json();
         }
 
-        try {
-            // Get an access token using the authorization code grant
-            $accessToken = $this->provider->getAccessToken('authorization_code', [
-                'code' => $request->input('code')
-            ]);
+        throw new Exception('Failed to fetch product list: ' . $response->body());
+    }
 
+    public function getProduct($id, $apiKey, $accessToken)
+    {
+        $response = Http::withHeaders([
+            'x-api-key' => $apiKey,
+            'Authorization' => 'Bearer ' . $accessToken,
+        ])->get("https://api.stockx.com/v2/catalog/products/{$id}");
 
-            $user = Auth::user();
-            $user->update(['token' => $accessToken->getToken()]);
-
-
-            // Store the access token in the .env file
-            // $this->setEnvironmentValue('STOCKX_TOKEN', $accessToken->getToken());
-
-            // Redirect to fetch product list
-            Log::info('StockX Tocken: ', $accessToken->getToken());
-        } catch (Exception $e) {
-            return redirect('/')->withErrors('Failed to get access token: ' . $e->getMessage());
+        if ($response->successful()) {
+            return $response->json();
         }
+
+        throw new Exception('Failed to fetch product: ' . $response->body());
+    }
+
+    public function getProductVariants($id, $apiKey, $accessToken)
+    {
+        $response = Http::withHeaders([
+            'x-api-key' => $apiKey,
+            'Authorization' => 'Bearer ' . $accessToken,
+        ])->get("https://api.stockx.com/v2/catalog/products/{$id}/market-data");
+
+        if ($response->successful()) {
+            return $response->json();
+        }
+
+        throw new Exception('Failed to fetch product variants: ' . $response->body());
     }
 }

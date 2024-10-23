@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\StockX;
 use App\Http\Controllers\Web\Frontend\HomeController;
 use App\Http\Controllers\Web\Frontend\Product\InventoryController;
 use App\Http\Controllers\Web\Frontend\Product\SalesController;
@@ -49,3 +50,12 @@ Route::prefix('/settings')->name('settings.')->group(function () {
         Route::put('/', 'update')->name('update');
     });
 });
+
+
+// stockx URLS
+Route::get('/auth/stockx', [StockX::class, 'redirectToProvider'])->name('auth.stockx');
+Route::get('/auth/stockx/callback', [StockX::class, 'handleCallback']);
+Route::get('/products', [StockX::class, 'fetchProductList'])->name('fetch.product.list');
+
+Route::get('/product/{id}', [StockX::class, 'show'])->name('fetch.product.show');
+Route::get('/products/variant/{id}', [StockX::class, 'allVariant'])->name('fetch.product.variant');
