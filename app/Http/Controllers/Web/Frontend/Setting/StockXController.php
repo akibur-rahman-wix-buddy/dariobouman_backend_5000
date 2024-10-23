@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Web\Frontend\Setting;
 
 use App\Http\Controllers\Controller;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 class StockXController extends Controller
 {
@@ -63,7 +65,19 @@ class StockXController extends Controller
      */
     public function update(Request $request)
     {
-        dd($request->all());
+        $validateData = $request->validate([
+            'api_key' => 'required|string',
+            'client_id' => 'required|string',
+            'client_secret' => 'required|string',
+        ]);
+
+        try {
+            $this->user->stockX()->update($validateData);
+            return redirect()->back()->with('t-success', 'StockX Credentials Updated');
+        } catch (Exception $e) {
+            Log::error('StockX Credentials Update Fail: ' . $e->getMessage());
+            return redirect()->back()->with('t-error', 'Something went wrong...!');
+        }
     }
 
     /**

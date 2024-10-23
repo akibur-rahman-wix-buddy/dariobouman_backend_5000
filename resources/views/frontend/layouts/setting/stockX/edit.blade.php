@@ -28,7 +28,8 @@
                             </div>
                             <div class="card-body p-0">
                                 <div class="p-4 code-to-copy">
-                                    <form class="row g-3 needs-validation" action="{{route('settings.stockx.update')}}" method="POST" novalidate="">
+                                    <form class="row g-3 needs-validation" action="{{ route('settings.stockx.update') }}"
+                                        method="POST" novalidate="">
                                         @csrf
                                         @method('PUT')
                                         <div class="col-md-12">
@@ -44,16 +45,16 @@
                                             <label class="form-label" for="client_id">Client ID</label>
                                             <input class="form-control" id="client_id" name="client_id" type="text"
                                                 placeholder="{{ $stockX->client_id ?? 'Client ID' }}"
-                                                value="{{ old('client_id', $stockX->client_id)}}">
+                                                value="{{ old('client_id', $stockX->client_id) }}">
                                             @error('client_id')
                                                 <div class="validation-error">{{ $message }}</div>
                                             @enderror
                                         </div>
                                         <div class="col-md-6">
                                             <label class="form-label" for="client_secret">Client Secret</label>
-                                            <input class="form-control" id="client_secret" name="client_secret"
-                                                placeholder="{{ $stockX->client_secret ?? '*******************************' }}"
-                                                type="password">
+                                            <input class="form-control" id="" name="client_secret"
+                                                placeholder="Client Secret" type="password"
+                                                value="{{ $stockX->client_secret }}">
                                             @error('client_secret')
                                                 <div class="validation-error">{{ $message }}</div>
                                             @enderror
@@ -64,7 +65,7 @@
                                                 value="https://dariobouman.test/auth/stockx/callback" disabled>
                                         </div>
                                         <div class="col-12">
-                                            <button class="btn btn-primary" type="submit">Submit form</button>
+                                            <button class="btn btn-primary" type="submit">Save</button>
                                         </div>
                                     </form>
                                 </div>
