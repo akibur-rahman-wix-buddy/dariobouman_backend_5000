@@ -4,15 +4,22 @@ namespace App\Http\Controllers\Web\Frontend\Setting;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class StockXController extends Controller
 {
+    protected $user;
+    public function __construct()
+    {
+        $this->user = Auth::user();
+    }
+
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('frontend.layouts.setting.stockX.index');
+
     }
 
     /**
@@ -42,17 +49,21 @@ class StockXController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit()
     {
-        //
+        $compact = [
+            'stockX' => $this->user->stockX,
+        ];
+        // dd($compact);
+        return view('frontend.layouts.setting.stockX.edit', $compact);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request)
     {
-        //
+        dd($request->all());
     }
 
     /**

@@ -45,6 +45,7 @@ Route::prefix('/products')->name('products.')->group(function () {
 
 Route::prefix('/settings')->name('settings.')->group(function () {
     Route::prefix('/stockx')->name('stockx.')->controller(StockXController::class)->group(function () {
-        Route::get('/', 'index')->name('index');
+        Route::get('/', 'edit')->name('edit');
+        Route::put('/', 'update')->name('update');
     });
 });

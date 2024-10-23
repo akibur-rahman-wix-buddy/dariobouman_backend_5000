@@ -28,11 +28,14 @@
                             </div>
                             <div class="card-body p-0">
                                 <div class="p-4 code-to-copy">
-                                    <form class="row g-3 needs-validation" novalidate="">
+                                    <form class="row g-3 needs-validation" action="{{route('settings.stockx.update')}}" method="POST" novalidate="">
+                                        @csrf
+                                        @method('PUT')
                                         <div class="col-md-12">
                                             <label class="form-label" for="api_key">API Key</label>
                                             <input class="form-control" id="api_key" name="api_key" type="text"
-                                                placeholder="API Key" value="{{ old('api_key') }}">
+                                                placeholder="{{ $stockX->api_key ?? 'API Key' }}"
+                                                value="{{ old('api_key', $stockX->api_key) }}">
                                             @error('api_key')
                                                 <div class="validation-error">{{ $message }}</div>
                                             @enderror
@@ -40,7 +43,8 @@
                                         <div class="col-md-6">
                                             <label class="form-label" for="client_id">Client ID</label>
                                             <input class="form-control" id="client_id" name="client_id" type="text"
-                                                placeholder="Client ID" value="{{ old('client_id') }}">
+                                                placeholder="{{ $stockX->client_id ?? 'Client ID' }}"
+                                                value="{{ old('client_id', $stockX->client_id)}}">
                                             @error('client_id')
                                                 <div class="validation-error">{{ $message }}</div>
                                             @enderror
@@ -48,7 +52,8 @@
                                         <div class="col-md-6">
                                             <label class="form-label" for="client_secret">Client Secret</label>
                                             <input class="form-control" id="client_secret" name="client_secret"
-                                                placeholder="*******************************" type="password">
+                                                placeholder="{{ $stockX->client_secret ?? '*******************************' }}"
+                                                type="password">
                                             @error('client_secret')
                                                 <div class="validation-error">{{ $message }}</div>
                                             @enderror

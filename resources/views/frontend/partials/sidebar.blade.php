@@ -132,7 +132,7 @@
                                 {{-- StockX --}}
                                 <li class="nav-item">
                                     <a class="nav-link {{ request()->routeIs('settings.stockx.*') ? 'active' : '' }}"
-                                        href="{{ route('settings.stockx.index') }}">
+                                        href="{{ route('settings.stockx.edit') }}">
                                         <div class="d-flex align-items-center">
                                             <span class="nav-link-text">StockX</span>
                                         </div>
