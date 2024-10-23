@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Web\Frontend\Setting;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class StockX extends Controller
+class StockXController extends Controller
 {
     /**
      * Display a listing of the resource.
