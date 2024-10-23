@@ -75,4 +75,18 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $url ? asset('storage/' . $url) : asset('assets/dev/image/avatar.jpg');
     }
+
+
+    /**
+     * Get the associated StockX model for this instance.
+     *
+     * This method establishes a one-to-one relationship with the StockX model,
+     * allowing access to the related StockX record.
+     *
+     * @return HasOne
+     */
+    public function stockX(): HasOne
+    {
+        return $this->hasOne(StockX::class);
+    }
 }
