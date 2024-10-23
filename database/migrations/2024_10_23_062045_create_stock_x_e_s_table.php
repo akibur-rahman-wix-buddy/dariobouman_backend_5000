@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('api_key')->nullable();
             $table->string('client_id')->nullable();
             $table->string('client_secret')->nullable();
+            $table->string('token')->nullable();
             $table->timestamps();
         });
     }

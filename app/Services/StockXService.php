@@ -4,7 +4,9 @@ namespace App\Services;
 
 use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Log;
 use League\OAuth2\Client\Provider\GenericProvider;
 
 class StockXService
@@ -69,12 +71,6 @@ class StockXService
 
 
 
-    /**
-     * Handles the OAuth2 callback from StockX and exchanges the authorization code for an access token.
-     * 
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\RedirectResponse
-     */
     public function handleCallback(Request $request)
     {
         // Check for errors or state mismatch
@@ -89,51 +85,17 @@ class StockXService
             ]);
 
 
+            $user = Auth::user();
+            $user->update(['token' => $accessToken->getToken()]);
+
 
             // Store the access token in the .env file
-            $this->setEnvironmentValue('STOCKX_TOKEN', $accessToken->getToken());
-
-            // Store the access token in the session or database
-            // session(['stockx_token' => $accessToken->getToken()]);
+            // $this->setEnvironmentValue('STOCKX_TOKEN', $accessToken->getToken());
 
             // Redirect to fetch product list
-            return redirect()->route('fetch.product.list');
+            Log::info('StockX Tocken: ', $accessToken->getToken());
         } catch (Exception $e) {
             return redirect('/')->withErrors('Failed to get access token: ' . $e->getMessage());
-        }
-    }
-
-
-    /**
-     * Sets or updates a value in the .env file.
-     * 
-     * This function searches for a specified key in the .env file and updates its value. If the key does not
-     * exist, it appends a new line with the key and its value to the end of the .env file. It is used to dynamically
-     * modify environment variables at runtime.
-     * 
-     * @param string $key   The environment variable key to set or update.
-     * @param string $value The value to set for the specified key.
-     * 
-     * @return void
-     */
-    function setEnvironmentValue($key, $value)
-    {
-        $path = base_path('.env');
-
-        if (file_exists($path)) {
-            $envFile = file_get_contents($path);
-            $keyPattern = '/^' . preg_quote($key) . '=.*/m';
-
-            // Check if the key exists
-            if (preg_match($keyPattern, $envFile)) {
-                // Replace the key's value
-                $envFile = preg_replace($keyPattern, $key . '=' . $value, $envFile);
-            } else {
-                // If key does not exist, add it
-                $envFile .= PHP_EOL . $key . '=' . $value;
-            }
-
-            file_put_contents($path, $envFile);
         }
     }
 }
