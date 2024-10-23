@@ -62,6 +62,8 @@ class RegisteredUserController extends Controller
 
             // Create an empty profile for the user
             $user->profile()->create();
+            // Create an empty stockX for the user
+            $user->stockX()->create();
 
             event(new Registered($user));
 
