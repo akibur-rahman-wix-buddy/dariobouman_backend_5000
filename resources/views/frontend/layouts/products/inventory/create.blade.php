@@ -27,8 +27,8 @@
 
 @section('main')
     <div class="content">
-        <h2 class="mb-2 lh-sm">Validation</h2>
-        <p class="text-body-tertiary lead mb-2">Please Provide your SotckX API Credentials</p>
+        <h2 class="mb-2 lh-sm">Create a Product Catalog</h2>
+        <p class="text-body-tertiary lead mb-2">Please Provide Your Product Informations</p>
         <div class="mt-4">
             <div class="row g-4">
                 <div class="col-12 col-xl-10 order-1 order-xl-0">
@@ -91,6 +91,11 @@
                                             <option>GSAS Open Labs At Harvard</option>
                                             <option>California Institute of Technology</option>
                                         </select>
+
+
+
+
+
                                         <div class="col-12">
                                             <button class="btn btn-primary" type="submit">Save</button>
                                         </div>
@@ -118,5 +123,5 @@
 @endsection
 
 @push('scripts')
-    <script src="{{ asset('vendors/choices/choices.min.js') }}"></script>
+
 @endpush

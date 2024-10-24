@@ -8,6 +8,7 @@
 <script src="{{ asset('vendors/list.js/list.min.js') }}"></script>
 <script src="{{ asset('vendors/feather-icons/feather.min.js') }}"></script>
 <script src="{{ asset('vendors/dayjs/dayjs.min.js') }}"></script>
+<script src="{{ asset('vendors/dropzone/dropzone-min.js') }}"></script>
 <script src="{{ asset('vendors/leaflet/leaflet.js') }}"></script>
 <script src="{{ asset('vendors/leaflet.markercluster/leaflet.markercluster.js') }}"></script>
 <script src="{{ asset('vendors/leaflet.tilelayer.colorfilter/leaflet-tilelayer-colorfilter.min.js') }}"></script>
@@ -15,6 +16,7 @@
 <script src="{{ asset('assets/js/phoenix.js') }}"></script>
 <script src="{{ asset('vendors/echarts/echarts.min.js') }}"></script>
 <script src="{{ asset('assets/js/ecommerce-dashboard.js') }}"></script>
+<script src="{{ asset('vendors/choices/choices.min.js') }}"></script>
 
 
 {{-- development ................................................. --}}

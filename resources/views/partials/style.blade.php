@@ -1,4 +1,5 @@
 {{-- Default --}}
+<link href="{{ asset('vendors/dropzone/dropzone.css') }}" rel="stylesheet" />
 <link href="{{ asset('vendors/prism/prism-okaidia.css') }}" rel="stylesheet">
 {{-- <link rel="preconnect" href="https://fonts.googleapis.com/">
 <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin=""> --}}
