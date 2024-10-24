@@ -4,6 +4,9 @@
     template
 @endsection
 
+@push('headScripts')
+@endpush
+
 @section('main')
     <div class="content">
         <nav class="mb-3" aria-label="breadcrumb">
@@ -402,7 +405,8 @@
                                                 delivery</label></div>
                                         <div class="ps-4">
                                             <p class="fs-9 mb-0 text-body-secondary">Only available with Shipping method:
-                                                <a href="#!">Fullfilled by Phoenix</a></p>
+                                                <a href="#!">Fullfilled by Phoenix</a>
+                                            </p>
                                         </div>
                                     </div>
                                     <div class="mb-3">
@@ -460,7 +464,8 @@
                                                 class="form-check-label fs-8 text-body" for="localDelivery">Local
                                                 delivery</label></div>
                                         <p class="fs-9 ms-4 mb-0 text-body-secondary">Deliver to your country of residence
-                                            <a href="#!">Change profile address </a></p>
+                                            <a href="#!">Change profile address </a>
+                                        </p>
                                     </div>
                                 </div>
                                 <div class="tab-pane fade" id="attributesTabContent" role="tabpanel"

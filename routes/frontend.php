@@ -35,6 +35,7 @@ Route::prefix('/products')->name('products.')->group(function () {
 
     Route::prefix('/inventories')->name('inventories.')->controller(InventoryController::class)->group(function () {
         Route::get('/', 'index')->name('index');
+        Route::get('/create', 'create')->name('create');
     });
 
     Route::prefix('/sales')->name('sales.')->controller(SalesController::class)->group(function () {
