@@ -5,11 +5,12 @@
 <link href="{{ asset('assets/css/font/Nunito+Sans.css') }}" rel="stylesheet">
 <link href="{{ asset('vendors/simplebar/simplebar.min.css') }}" rel="stylesheet">
 <link rel="stylesheet" href="{{ asset('assets/css/unicons.iconscout/line.css') }}">
-<link href="{{ asset('assets/css/theme-rtl.min.css') }}" type="text/css" rel="stylesheet" id="style-rtl">
+<link href="{{ asset('vendors/choices/choices.min.css') }}" rel="stylesheet">
+<link href="{{ asset('vendors/prism/prism-okaidia.css') }}" rel="stylesheet">
 <link href="{{ asset('assets/css/theme.min.css') }}" type="text/css" rel="stylesheet" id="style-default">
+<link href="assets/css/theme.min.css') }}" type="text/css" rel="stylesheet" id="style-default">
 <link href="{{ asset('assets/css/user-rtl.min.css') }}" type="text/css" rel="stylesheet" id="user-style-rtl">
 <link href="{{ asset('assets/css/user.min.css') }}" type="text/css" rel="stylesheet" id="user-style-default">
-
 
 <style>
     .validation-error {

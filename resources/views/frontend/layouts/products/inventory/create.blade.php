@@ -8,6 +8,21 @@
 @endpush
 
 @push('headScripts')
+    {{-- <script>
+        var phoenixIsRTL = window.config.config.phoenixIsRTL;
+        if (phoenixIsRTL) {
+            var linkDefault = document.getElementById('style-default');
+            var userLinkDefault = document.getElementById('user-style-default');
+            linkDefault.setAttribute('disabled', true);
+            userLinkDefault.setAttribute('disabled', true);
+            document.querySelector('html').setAttribute('dir', 'rtl');
+        } else {
+            var linkRTL = document.getElementById('style-rtl');
+            var userLinkRTL = document.getElementById('user-style-rtl');
+            linkRTL.setAttribute('disabled', true);
+            userLinkRTL.setAttribute('disabled', true);
+        }
+    </script> --}}
 @endpush
 
 @section('main')
@@ -67,6 +82,15 @@
                                             <input class="form-control" id="redirect_url" type="text"
                                                 value="https://dariobouman.test/auth/stockx/callback" disabled>
                                         </div>
+                                        <label for="organizerMultiple">Multiple</label>
+                                        <select class="form-select" id="organizerMultiple" data-choices="data-choices"
+                                            multiple="multiple" data-options='{"removeItemButton":true,"placeholder":true}'>
+                                            <option value="">Select organizer...</option>
+                                            <option>Massachusetts Institute of Technology</option>
+                                            <option>University of Chicago</option>
+                                            <option>GSAS Open Labs At Harvard</option>
+                                            <option>California Institute of Technology</option>
+                                        </select>
                                         <div class="col-12">
                                             <button class="btn btn-primary" type="submit">Save</button>
                                         </div>
@@ -81,7 +105,8 @@
                         <h5 class="lh-1">On this page </h5>
                         <hr>
                         <ul class="nav nav-vertical flex-column doc-nav" data-doc-nav="data-doc-nav">
-                            <li class="nav-item"> <a class="nav-link" href="#save-StockX-credentials">Create a Product Catalog</a></li>
+                            <li class="nav-item"> <a class="nav-link" href="#save-StockX-credentials">Create a Product
+                                    Catalog</a></li>
                         </ul>
                     </div>
                 </div>
@@ -93,5 +118,5 @@
 @endsection
 
 @push('scripts')
-    <script></script>
+    <script src="{{ asset('vendors/choices/choices.min.js') }}"></script>
 @endpush
