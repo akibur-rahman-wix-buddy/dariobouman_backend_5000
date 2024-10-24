@@ -92,7 +92,7 @@
                                     filters</button>
                             </div>
                         </div>
-                        <div class="ms-xxl-auto"><button class="btn btn-link text-body me-4 px-0"><svg
+                        <a href="{{route('products.inventories.create')}}" class="ms-xxl-auto"><button class="btn btn-link text-body me-4 px-0"><svg
                                     class="svg-inline--fa fa-file-export fs-9 me-2" aria-hidden="true" focusable="false"
                                     data-prefix="fas" data-icon="file-export" role="img"
                                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg="">
@@ -108,7 +108,7 @@
                                         d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z">
                                     </path>
                                 </svg><!-- <span class="fas fa-plus me-2"></span> Font Awesome fontawesome.com -->Add
-                                product</button></div>
+                                product</button></a>
                     </div>
                 </div>
                 <div

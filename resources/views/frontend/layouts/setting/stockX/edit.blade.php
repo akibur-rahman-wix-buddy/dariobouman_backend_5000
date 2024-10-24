@@ -6,7 +6,7 @@
 
 @section('main')
     <div class="content">
-        <h2 class="mb-2 lh-sm">Validation</h2>
+        <h2 class="mb-2 lh-sm">StockX Setting</h2>
         <p class="text-body-tertiary lead mb-2">Please Provide your SotckX API Credentials</p>
         <div class="mt-4">
             <div class="row g-4">
@@ -87,4 +87,5 @@
             {{-- footer --}}
             <x-footer />
         </div>
-    @endsection
+    </div>
+@endsection
