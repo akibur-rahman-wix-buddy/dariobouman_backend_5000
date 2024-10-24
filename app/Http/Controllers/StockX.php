@@ -53,7 +53,7 @@ class StockX extends Controller
                 'token' => $accessToken->getToken(),
             ]);
 
-            return redirect()->route('fetch.product.list');
+            return redirect()->route('stockx.create.product');
         } catch (Exception $e) {
             Log::error('handleCallback Error: '. $e->getMessage());
             return redirect('/')->withErrors('Failed to get access token: ' . $e->getMessage());
@@ -113,6 +113,26 @@ class StockX extends Controller
             $variants = $this->stockXService->getProductVariants($id, $apiKey,$accessToken);
             return response()->json($variants);
         } catch (Exception $e) {
+            return redirect()->route('auth.stockx')->withErrors($e->getMessage());
+        }
+    }
+
+
+    public function createProduct(){
+        $stockXCredentials = $this->user->stockX;
+        $apiKey = $stockXCredentials->api_key;
+        $accessToken = $stockXCredentials->token;
+
+        if (!$accessToken) {
+            return redirect()->route('auth.stockx')->withErrors('Access token not found. Please authenticate again.');
+        }
+
+        try {
+            // Fetch product variants
+            $variants = $this->stockXService->createProductIngestionJob($apiKey,$accessToken);
+            return response()->json($variants);
+        } catch (Exception $e) {
+            Log::error("Product Creation Error: " . $e->getMessage());
             return redirect()->route('auth.stockx')->withErrors($e->getMessage());
         }
     }

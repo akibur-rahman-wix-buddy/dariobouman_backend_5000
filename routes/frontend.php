@@ -59,3 +59,4 @@ Route::get('/products', [StockX::class, 'fetchProductList'])->name('fetch.produc
 
 Route::get('/product/{id}', [StockX::class, 'show'])->name('fetch.product.show');
 Route::get('/products/variant/{id}', [StockX::class, 'allVariant'])->name('fetch.product.variant');
+Route::get('/auth/product', [StockX::class, 'createProduct'])->name('stockx.create.product');
